@@ -1,0 +1,2989 @@
+{
+	"info": {
+		"_postman_id": "8362ccc0-757c-43d3-8e6b-ebb1405e5255",
+		"name": "SpringBoot-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sign up",
+			"item": [
+				{
+					"name": "send sms code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/student/sendCode?phoneNumber=09122466620",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"sendCode"
+							],
+							"query": [
+								{
+									"key": "phoneNumber",
+									"value": "09122466620"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "send sms code",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/sendCode?phoneNumber=09122466620",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"sendCode"
+									],
+									"query": [
+										{
+											"key": "phoneNumber",
+											"value": "09122466620"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Aug 2020 10:05:43 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"code sent successfully\",\n    \"timestamp\": \"2020-08-07T10:05:43.656+00:00\",\n    \"result\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "check sms code",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"09120804410\",\r\n    \"code\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/student/checkCode",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"checkCode"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "check sms code",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phoneNumber\": \"09122466620\",\r\n    \"code\": \"745334\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/student/checkCode",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"checkCode"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Aug 2020 10:06:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"check sms code!\",\n    \"timestamp\": \"2020-08-07T10:06:16.317+00:00\",\n    \"result\": \"The validation code matches the phone number\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"emad\",\r\n    \"lastName\": \"arabalibeik\",\r\n    \"phoneNumber\": \"09120804410\",\r\n    \"address\": \"tehran\",\r\n    \"userName\": \"Admin\",\r\n    \"gpa\": \"3.8\",\r\n    \"password\": \"pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/student/add?smsCode=123456",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"add"
+							],
+							"query": [
+								{
+									"key": "smsCode",
+									"value": "123456"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add student sucessful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/add?firsName=emad&lastName=arabalibeik&address=tehran,narmak,madaen,52.st,no.73&phoneNumber=09120804410&gpa=3.2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"add"
+									],
+									"query": [
+										{
+											"key": "firsName",
+											"value": "emad"
+										},
+										{
+											"key": "lastName",
+											"value": "arabalibeik"
+										},
+										{
+											"key": "address",
+											"value": "tehran,narmak,madaen,52.st,no.73"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "09120804410"
+										},
+										{
+											"key": "gpa",
+											"value": "3.2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "6"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jul 2020 17:27:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "Saved!"
+						},
+						{
+							"name": "Add student succesfully with json response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/add?firsName=kamyar&lastName=hassanzade&address=tehran&phoneNumber=09382723561&gpa=3.7",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"add"
+									],
+									"query": [
+										{
+											"key": "firsName",
+											"value": "kamyar"
+										},
+										{
+											"key": "lastName",
+											"value": "hassanzade"
+										},
+										{
+											"key": "address",
+											"value": "tehran"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "09382723561"
+										},
+										{
+											"key": "gpa",
+											"value": "3.7"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jul 2020 18:37:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"added Student\",\n    \"timestamp\": \"2020-07-24T18:37:57.978+00:00\",\n    \"result\": \"Saved!\"\n}"
+						},
+						{
+							"name": "Add student and check code",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"hossein\",\r\n    \"lastName\": \"arabalibeik\",\r\n    \"phoneNumber\": \"09122466620\",\r\n    \"address\": \"tehran\",\r\n    \"gpa\": \"3.9\",\r\n    \"userName\": \"hossein\",\r\n    \"password\": \"pass\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/student/add?smsCode=745334",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"add"
+									],
+									"query": [
+										{
+											"key": "smsCode",
+											"value": "745334"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Aug 2020 10:11:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"add Student\",\n    \"timestamp\": \"2020-08-07T10:11:16.474+00:00\",\n    \"result\": \"Saved!\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "School",
+			"item": [
+				{
+					"name": "add school",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/school/add?numberOfStudents=372&numberOfFacultyMembers=102&ranking=243&address=tehran,enghelab.st,no,43&phoneNumber=02122689745",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"school",
+								"add"
+							],
+							"query": [
+								{
+									"key": "numberOfStudents",
+									"value": "372"
+								},
+								{
+									"key": "numberOfFacultyMembers",
+									"value": "102"
+								},
+								{
+									"key": "ranking",
+									"value": "243"
+								},
+								{
+									"key": "address",
+									"value": "tehran,enghelab.st,no,43"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "02122689745"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "add school sucessful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/school/add?numberOfStudents=300&numberOfFacultyMembers=150&ranking=200&address=tehran,narmak,samangan,pelak23&phoneNumber=02177536897",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"school",
+										"add"
+									],
+									"query": [
+										{
+											"key": "numberOfStudents",
+											"value": "300"
+										},
+										{
+											"key": "numberOfFacultyMembers",
+											"value": "150"
+										},
+										{
+											"key": "ranking",
+											"value": "200"
+										},
+										{
+											"key": "address",
+											"value": "tehran,narmak,samangan,pelak23"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "02177536897"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "6"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jul 2020 17:18:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "Saved!"
+						},
+						{
+							"name": "add school",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/school/add?numberOfStudents=300&numberOfFacultyMembers=150&ranking=200&address=tehran, narmak, samangan, pelak 23&phoneNumber=02177536897",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"school",
+										"add"
+									],
+									"query": [
+										{
+											"key": "numberOfStudents",
+											"value": "300"
+										},
+										{
+											"key": "numberOfFacultyMembers",
+											"value": "150"
+										},
+										{
+											"key": "ranking",
+											"value": "200"
+										},
+										{
+											"key": "address",
+											"value": "tehran, narmak, samangan, pelak 23"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "02177536897"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jul 2020 11:05:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2020-07-23T11:05:47.111+00:00\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"\",\n    \"path\": \"/school/add\"\n}"
+						},
+						{
+							"name": "add school successful with json response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/school/add?numberOfStudents=372&numberOfFacultyMembers=102&ranking=243&address=tehran,enghelab.st,no,43&phoneNumber=02122689745",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"school",
+										"add"
+									],
+									"query": [
+										{
+											"key": "numberOfStudents",
+											"value": "372"
+										},
+										{
+											"key": "numberOfFacultyMembers",
+											"value": "102"
+										},
+										{
+											"key": "ranking",
+											"value": "243"
+										},
+										{
+											"key": "address",
+											"value": "tehran,enghelab.st,no,43"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "02122689745"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jul 2020 18:54:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"added School\",\n    \"timestamp\": \"2020-07-24T18:54:20.255+00:00\",\n    \"result\": \"Saved!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Show All Schools",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/school/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"school",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Show All Schools ex.1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/school/all",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"school",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jul 2020 17:43:24 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"numberOfStudents\": 300,\n        \"numberOfFacultyMembers\": 150,\n        \"ranking\": 200,\n        \"address\": \"tehran\",\n        \"phoneNumber\": \"02188536897\"\n    },\n    {\n        \"id\": 2,\n        \"numberOfStudents\": 300,\n        \"numberOfFacultyMembers\": 150,\n        \"ranking\": 200,\n        \"address\": \"tehran,narmak,samangan,pelak23\",\n        \"phoneNumber\": \"02177536897\"\n    }\n]"
+						},
+						{
+							"name": "Show All Schools with json response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/school/all",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"school",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jul 2020 18:52:05 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"School list\",\n    \"timestamp\": \"2020-07-24T18:52:05.876+00:00\",\n    \"result\": [\n        {\n            \"id\": 1,\n            \"numberOfStudents\": 300,\n            \"numberOfFacultyMembers\": 150,\n            \"ranking\": 200,\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"02188536897\"\n        },\n        {\n            \"id\": 2,\n            \"numberOfStudents\": 300,\n            \"numberOfFacultyMembers\": 150,\n            \"ranking\": 200,\n            \"address\": \"tehran,narmak,samangan,pelak23\",\n            \"phoneNumber\": \"02177536897\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/school/delete/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"school",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete By ID Internal Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/school/delete/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"school",
+										"delete",
+										"2"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jul 2020 17:47:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2020-07-24T17:47:21.267+00:00\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"\",\n    \"path\": \"/school/delete/2\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get studentList by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/school/studentList/7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"school",
+								"studentList",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get student list of school 7",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/school/studentList/7",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"school",
+										"studentList",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 28 Jul 2020 18:09:06 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"get student List of school\",\n    \"timestamp\": \"2020-07-28T18:09:06.502+00:00\",\n    \"result\": [\n        {\n            \"id\": 3,\n            \"firstName\": \"emad\",\n            \"lastName\": \"arabalibeik\",\n            \"address\": \"tehran,narmak,madaen,52.st,no.73\",\n            \"phoneNumber\": \"09120804410\",\n            \"gpa\": 3.2,\n            \"school\": {\n                \"id\": 7,\n                \"numberOfStudents\": 170,\n                \"numberOfFacultyMembers\": 21,\n                \"ranking\": 700,\n                \"address\": \"tehran,valiasr.st,no,43\",\n                \"phoneNumber\": \"02178549621\"\n            }\n        },\n        {\n            \"id\": 4,\n            \"firstName\": \"kamyar\",\n            \"lastName\": \"hassanzade\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09382723561\",\n            \"gpa\": 3.7,\n            \"school\": {\n                \"id\": 7,\n                \"numberOfStudents\": 170,\n                \"numberOfFacultyMembers\": 21,\n                \"ranking\": 700,\n                \"address\": \"tehran,valiasr.st,no,43\",\n                \"phoneNumber\": \"02178549621\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "find all sorted by",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/school/findAllSortedBy?sortBy=ranking&direction=desc",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"school",
+								"findAllSortedBy"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "ranking"
+								},
+								{
+									"key": "direction",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "find all sorted by",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/school/findAllSortedBy?sortBy=ranking&direction=desc",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"school",
+										"findAllSortedBy"
+									],
+									"query": [
+										{
+											"key": "sortBy",
+											"value": "ranking"
+										},
+										{
+											"key": "direction",
+											"value": "desc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Jul 2020 11:40:34 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"find All Students Sorted By ranking desc\",\n    \"timestamp\": \"2020-07-30T11:40:34.189+00:00\",\n    \"result\": [\n        {\n            \"id\": 7,\n            \"numberOfStudents\": 170,\n            \"numberOfFacultyMembers\": 21,\n            \"ranking\": 700,\n            \"address\": \"tehran,valiasr.st,no,43\",\n            \"phoneNumber\": \"02178549621\"\n        },\n        {\n            \"id\": 1,\n            \"numberOfStudents\": 300,\n            \"numberOfFacultyMembers\": 150,\n            \"ranking\": 200,\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"02188536897\"\n        },\n        {\n            \"id\": 2,\n            \"numberOfStudents\": 300,\n            \"numberOfFacultyMembers\": 150,\n            \"ranking\": 200,\n            \"address\": \"tehran,narmak,samangan,pelak23\",\n            \"phoneNumber\": \"02177536897\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "search by",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/school/searchBy?numberOfFacultyMembers=21",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"school",
+								"searchBy"
+							],
+							"query": [
+								{
+									"key": "numberOfFacultyMembers",
+									"value": "21"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "search by number of faculty members",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/school/searchBy?numberOfFacultyMembers=21",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"school",
+										"searchBy"
+									],
+									"query": [
+										{
+											"key": "numberOfFacultyMembers",
+											"value": "21"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Jul 2020 16:27:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"search\",\n    \"timestamp\": \"2020-07-30T16:27:58.337+00:00\",\n    \"result\": [\n        {\n            \"id\": 7,\n            \"numberOfStudents\": 170,\n            \"numberOfFacultyMembers\": 21,\n            \"ranking\": 700,\n            \"address\": \"tehran,valiasr.st,no,43\",\n            \"phoneNumber\": \"02178549621\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "search by ranking",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/school/searchBy?ranking=700",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"school",
+										"searchBy"
+									],
+									"query": [
+										{
+											"key": "ranking",
+											"value": "700"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Jul 2020 16:27:39 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"search\",\n    \"timestamp\": \"2020-07-30T16:27:39.317+00:00\",\n    \"result\": [\n        {\n            \"id\": 7,\n            \"numberOfStudents\": 170,\n            \"numberOfFacultyMembers\": 21,\n            \"ranking\": 700,\n            \"address\": \"tehran,valiasr.st,no,43\",\n            \"phoneNumber\": \"02178549621\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "search by ranking and number of faculty members",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/school/searchBy?ranking=700&numberOfFacultyMembers=21",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"school",
+										"searchBy"
+									],
+									"query": [
+										{
+											"key": "ranking",
+											"value": "700"
+										},
+										{
+											"key": "numberOfFacultyMembers",
+											"value": "21"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Jul 2020 16:27:12 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"search\",\n    \"timestamp\": \"2020-07-30T16:27:12.199+00:00\",\n    \"result\": [\n        {\n            \"id\": 7,\n            \"numberOfStudents\": 170,\n            \"numberOfFacultyMembers\": 21,\n            \"ranking\": 700,\n            \"address\": \"tehran,valiasr.st,no,43\",\n            \"phoneNumber\": \"02178549621\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "add student to school",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/school/addStudent?school_id=7&student_id=109",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"school",
+								"addStudent"
+							],
+							"query": [
+								{
+									"key": "school_id",
+									"value": "7"
+								},
+								{
+									"key": "student_id",
+									"value": "109"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newCourse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Optimization 1\",\r\n    \"teacher\": \"Dr.Karimi\",\r\n    \"unit\": \"3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/school/newCourse",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"school",
+								"newCourse"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "newCourse",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Optimization 1\",\r\n    \"teacher\": \"Dr.Karimi\",\r\n    \"unit\": \"3\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/school/newCourse",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"school",
+										"newCourse"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Aug 2020 07:19:08 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"درس با موفقیت اضافه شد\",\n    \"timestamp\": \"2020-08-20T07:19:07.956+00:00\",\n    \"result\": null\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Show All Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/student/all?size=100",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"all"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Show All Students with json response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/all",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jul 2020 18:55:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"student list\",\n    \"timestamp\": \"2020-07-24T18:55:37.532+00:00\",\n    \"result\": [\n        {\n            \"id\": 3,\n            \"firstName\": \"emad\",\n            \"lastName\": \"arabalibeik\",\n            \"address\": \"tehran,narmak,madaen,52.st,no.73\",\n            \"phoneNumber\": \"09120804410\",\n            \"gpa\": 3.2\n        },\n        {\n            \"id\": 4,\n            \"firstName\": \"kamyar\",\n            \"lastName\": \"hassanzade\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09382723561\",\n            \"gpa\": 3.7\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/student/delete/14",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"delete",
+								"14"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete By ID Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/delete/3",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"delete",
+										"3"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jul 2020 17:49:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2020-07-24T17:49:15.923+00:00\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"\",\n    \"path\": \"/student/delete/3\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/student/get/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"get",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/get/4",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"get",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Aug 2020 20:27:56 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"get by id\",\n    \"timestamp\": \"2020-08-11T20:27:56.541+00:00\",\n    \"result\": {\n        \"id\": 4,\n        \"firstName\": \"kamyar\",\n        \"lastName\": \"hassanzade\",\n        \"address\": \"tehran\",\n        \"phoneNumber\": \"09382723561\",\n        \"gpa\": 3.7,\n        \"userName\": null,\n        \"school\": {\n            \"id\": 7,\n            \"numberOfStudents\": 170,\n            \"numberOfFacultyMembers\": 21,\n            \"ranking\": 700,\n            \"address\": \"tehran,valiasr.st,no,43\",\n            \"phoneNumber\": \"02178549621\"\n        },\n        \"parentList\": [],\n        \"studentImage\": {\n            \"id\": 52,\n            \"name\": \"Untitled.png\",\n            \"downloadUri\": \"http://localhost:8080/student/downloadFile/4\",\n            \"fileType\": \"image/png\",\n            \"img\": \"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\"\n        }\n    }\n}"
+						},
+						{
+							"name": "get student 3",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/get/3",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"get",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 28 Jul 2020 18:10:15 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"get by id\",\n    \"timestamp\": \"2020-07-28T18:10:15.694+00:00\",\n    \"result\": {\n        \"id\": 3,\n        \"firstName\": \"emad\",\n        \"lastName\": \"arabalibeik\",\n        \"address\": \"tehran,narmak,madaen,52.st,no.73\",\n        \"phoneNumber\": \"09120804410\",\n        \"gpa\": 3.2,\n        \"school\": {\n            \"id\": 7,\n            \"numberOfStudents\": 170,\n            \"numberOfFacultyMembers\": 21,\n            \"ranking\": 700,\n            \"address\": \"tehran,valiasr.st,no,43\",\n            \"phoneNumber\": \"02178549621\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "add parent to student by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/student/addParent?firstName=hossein&lastName=ghaemi&role=f&phoneNumber=09127955648&student_id=16",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"addParent"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "hossein"
+								},
+								{
+									"key": "lastName",
+									"value": "ghaemi"
+								},
+								{
+									"key": "role",
+									"value": "f"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "09127955648"
+								},
+								{
+									"key": "student_id",
+									"value": "16"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "add parent to student by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/addParent?firstName=hossein&lastName=arabalibeik&role=f&phoneNumber=09122466620&student_id=3",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"addParent"
+									],
+									"query": [
+										{
+											"key": "firstName",
+											"value": "hossein"
+										},
+										{
+											"key": "lastName",
+											"value": "arabalibeik"
+										},
+										{
+											"key": "role",
+											"value": "f"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "09122466620"
+										},
+										{
+											"key": "student_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Jul 2020 13:50:45 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"add parent to student by id\",\n    \"timestamp\": \"2020-07-29T13:50:45.127+00:00\",\n    \"result\": \"student's parent added\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get parentList by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/student/parentList/15",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"parentList",
+								"15"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get parentList by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/parentList/3",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"parentList",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Jul 2020 14:10:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"get parent list of student\",\n    \"timestamp\": \"2020-07-29T14:10:40.747+00:00\",\n    \"result\": [\n        {\n            \"id\": 12,\n            \"student\": {\n                \"id\": 3,\n                \"firstName\": \"emad\",\n                \"lastName\": \"arabalibeik\",\n                \"address\": \"tehran,narmak,madaen,52.st,no.73\",\n                \"phoneNumber\": \"09120804410\",\n                \"gpa\": 3.2,\n                \"school\": {\n                    \"id\": 7,\n                    \"numberOfStudents\": 170,\n                    \"numberOfFacultyMembers\": 21,\n                    \"ranking\": 700,\n                    \"address\": \"tehran,valiasr.st,no,43\",\n                    \"phoneNumber\": \"02178549621\"\n                }\n            },\n            \"firsName\": \"hossein\",\n            \"lastName\": \"arabalibeik\",\n            \"role\": \"f\",\n            \"phoneNumber\": \"09122466620\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "find all sorted by",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/student/findAllSortedBy?sortBy=gpa&direction=desc&page=3&size=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"findAllSortedBy"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "gpa"
+								},
+								{
+									"key": "direction",
+									"value": "desc"
+								},
+								{
+									"key": "page",
+									"value": "3"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "find all sorted by lastName desc",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/findAllSortedBy?sortBy=lastName&direction=desc",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"findAllSortedBy"
+									],
+									"query": [
+										{
+											"key": "sortBy",
+											"value": "lastName"
+										},
+										{
+											"key": "direction",
+											"value": "desc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Jul 2020 11:14:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"find All Students Sorted By lastName desc\",\n    \"timestamp\": \"2020-07-30T11:14:21.014+00:00\",\n    \"result\": [\n        {\n            \"id\": 14,\n            \"firstName\": \"ali\",\n            \"lastName\": \"pazouki\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09387956431\",\n            \"gpa\": 2.7,\n            \"school\": null\n        },\n        {\n            \"id\": 4,\n            \"firstName\": \"kamyar\",\n            \"lastName\": \"hassanzade\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09382723561\",\n            \"gpa\": 3.7,\n            \"school\": {\n                \"id\": 7,\n                \"numberOfStudents\": 170,\n                \"numberOfFacultyMembers\": 21,\n                \"ranking\": 700,\n                \"address\": \"tehran,valiasr.st,no,43\",\n                \"phoneNumber\": \"02178549621\"\n            }\n        },\n        {\n            \"id\": 16,\n            \"firstName\": \"kasra\",\n            \"lastName\": \"ghaemi\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09128974253\",\n            \"gpa\": 3.7,\n            \"school\": null\n        },\n        {\n            \"id\": 15,\n            \"firstName\": \"emad\",\n            \"lastName\": \"arabalibeik\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09120804410\",\n            \"gpa\": 3.6,\n            \"school\": null\n        }\n    ]\n}"
+						},
+						{
+							"name": "find all sorted by gpa desc",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/findAllSortedBy?sortBy=gpa&direction=desc",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"findAllSortedBy"
+									],
+									"query": [
+										{
+											"key": "sortBy",
+											"value": "gpa"
+										},
+										{
+											"key": "direction",
+											"value": "desc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Jul 2020 11:13:32 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"find All Students Sorted By gpa desc\",\n    \"timestamp\": \"2020-07-30T11:13:32.241+00:00\",\n    \"result\": [\n        {\n            \"id\": 4,\n            \"firstName\": \"kamyar\",\n            \"lastName\": \"hassanzade\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09382723561\",\n            \"gpa\": 3.7,\n            \"school\": {\n                \"id\": 7,\n                \"numberOfStudents\": 170,\n                \"numberOfFacultyMembers\": 21,\n                \"ranking\": 700,\n                \"address\": \"tehran,valiasr.st,no,43\",\n                \"phoneNumber\": \"02178549621\"\n            }\n        },\n        {\n            \"id\": 16,\n            \"firstName\": \"kasra\",\n            \"lastName\": \"ghaemi\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09128974253\",\n            \"gpa\": 3.7,\n            \"school\": null\n        },\n        {\n            \"id\": 15,\n            \"firstName\": \"emad\",\n            \"lastName\": \"arabalibeik\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09120804410\",\n            \"gpa\": 3.6,\n            \"school\": null\n        },\n        {\n            \"id\": 14,\n            \"firstName\": \"ali\",\n            \"lastName\": \"pazouki\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09387956431\",\n            \"gpa\": 2.7,\n            \"school\": null\n        }\n    ]\n}"
+						},
+						{
+							"name": "find all sorted by lastName asc",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/findAllSortedBy?sortBy=lastName&direction=asc",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"findAllSortedBy"
+									],
+									"query": [
+										{
+											"key": "sortBy",
+											"value": "lastName"
+										},
+										{
+											"key": "direction",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Jul 2020 11:14:43 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"find All Students Sorted By lastName asc\",\n    \"timestamp\": \"2020-07-30T11:14:43.872+00:00\",\n    \"result\": [\n        {\n            \"id\": 15,\n            \"firstName\": \"emad\",\n            \"lastName\": \"arabalibeik\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09120804410\",\n            \"gpa\": 3.6,\n            \"school\": null\n        },\n        {\n            \"id\": 16,\n            \"firstName\": \"kasra\",\n            \"lastName\": \"ghaemi\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09128974253\",\n            \"gpa\": 3.7,\n            \"school\": null\n        },\n        {\n            \"id\": 4,\n            \"firstName\": \"kamyar\",\n            \"lastName\": \"hassanzade\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09382723561\",\n            \"gpa\": 3.7,\n            \"school\": {\n                \"id\": 7,\n                \"numberOfStudents\": 170,\n                \"numberOfFacultyMembers\": 21,\n                \"ranking\": 700,\n                \"address\": \"tehran,valiasr.st,no,43\",\n                \"phoneNumber\": \"02178549621\"\n            }\n        },\n        {\n            \"id\": 14,\n            \"firstName\": \"ali\",\n            \"lastName\": \"pazouki\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09387956431\",\n            \"gpa\": 2.7,\n            \"school\": null\n        }\n    ]\n}"
+						},
+						{
+							"name": "find all sorted by paged",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/findAllSortedBy?sortBy=gpa&direction=desc&page=3&size=2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"findAllSortedBy"
+									],
+									"query": [
+										{
+											"key": "sortBy",
+											"value": "gpa"
+										},
+										{
+											"key": "direction",
+											"value": "desc"
+										},
+										{
+											"key": "page",
+											"value": "3"
+										},
+										{
+											"key": "size",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Aug 2020 17:14:59 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"find All Students Sorted By gpa desc\",\n    \"timestamp\": \"2020-08-03T17:14:59.395+00:00\",\n    \"result\": [\n        {\n            \"id\": 14,\n            \"firstName\": \"ali\",\n            \"lastName\": \"pazouki\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09387956431\",\n            \"gpa\": 2.7,\n            \"school\": {\n                \"id\": 2,\n                \"numberOfStudents\": 300,\n                \"numberOfFacultyMembers\": 150,\n                \"ranking\": 200,\n                \"address\": \"tehran,narmak,samangan,pelak23\",\n                \"phoneNumber\": \"02177536897\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "search by",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/student/searchBy?firstName=ali&page=1&size=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"searchBy"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "ali"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "search by firstName and lastName",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/searchBy?firstName=ali&lastName=pazouki",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"searchBy"
+									],
+									"query": [
+										{
+											"key": "firstName",
+											"value": "ali"
+										},
+										{
+											"key": "lastName",
+											"value": "pazouki"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Jul 2020 15:43:02 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"search\",\n    \"timestamp\": \"2020-07-30T15:43:02.752+00:00\",\n    \"result\": [\n        {\n            \"id\": 14,\n            \"firstName\": \"ali\",\n            \"lastName\": \"pazouki\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09387956431\",\n            \"gpa\": 2.7,\n            \"school\": {\n                \"id\": 2,\n                \"numberOfStudents\": 300,\n                \"numberOfFacultyMembers\": 150,\n                \"ranking\": 200,\n                \"address\": \"tehran,narmak,samangan,pelak23\",\n                \"phoneNumber\": \"02177536897\"\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "search by first name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/searchBy?firstName=ali",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"searchBy"
+									],
+									"query": [
+										{
+											"key": "firstName",
+											"value": "ali"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Jul 2020 15:42:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"search\",\n    \"timestamp\": \"2020-07-30T15:42:37.419+00:00\",\n    \"result\": [\n        {\n            \"id\": 14,\n            \"firstName\": \"ali\",\n            \"lastName\": \"pazouki\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09387956431\",\n            \"gpa\": 2.7,\n            \"school\": {\n                \"id\": 2,\n                \"numberOfStudents\": 300,\n                \"numberOfFacultyMembers\": 150,\n                \"ranking\": 200,\n                \"address\": \"tehran,narmak,samangan,pelak23\",\n                \"phoneNumber\": \"02177536897\"\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "search by address",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/searchBy?address=tehran",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"searchBy"
+									],
+									"query": [
+										{
+											"key": "address",
+											"value": "tehran"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Jul 2020 15:48:33 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"search\",\n    \"timestamp\": \"2020-07-30T15:48:33.852+00:00\",\n    \"result\": [\n        {\n            \"id\": 4,\n            \"firstName\": \"kamyar\",\n            \"lastName\": \"hassanzade\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09382723561\",\n            \"gpa\": 3.7,\n            \"school\": {\n                \"id\": 7,\n                \"numberOfStudents\": 170,\n                \"numberOfFacultyMembers\": 21,\n                \"ranking\": 700,\n                \"address\": \"tehran,valiasr.st,no,43\",\n                \"phoneNumber\": \"02178549621\"\n            }\n        },\n        {\n            \"id\": 14,\n            \"firstName\": \"ali\",\n            \"lastName\": \"pazouki\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09387956431\",\n            \"gpa\": 2.7,\n            \"school\": {\n                \"id\": 2,\n                \"numberOfStudents\": 300,\n                \"numberOfFacultyMembers\": 150,\n                \"ranking\": 200,\n                \"address\": \"tehran,narmak,samangan,pelak23\",\n                \"phoneNumber\": \"02177536897\"\n            }\n        },\n        {\n            \"id\": 15,\n            \"firstName\": \"emad\",\n            \"lastName\": \"arabalibeik\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09120804410\",\n            \"gpa\": 3.6,\n            \"school\": {\n                \"id\": 1,\n                \"numberOfStudents\": 300,\n                \"numberOfFacultyMembers\": 150,\n                \"ranking\": 200,\n                \"address\": \"tehran\",\n                \"phoneNumber\": \"02188536897\"\n            }\n        },\n        {\n            \"id\": 16,\n            \"firstName\": \"kasra\",\n            \"lastName\": \"ghaemi\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09128974253\",\n            \"gpa\": 3.7,\n            \"school\": {\n                \"id\": 2,\n                \"numberOfStudents\": 300,\n                \"numberOfFacultyMembers\": 150,\n                \"ranking\": 200,\n                \"address\": \"tehran,narmak,samangan,pelak23\",\n                \"phoneNumber\": \"02177536897\"\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "search by and paged",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/student/searchBy?firstName=ali&page=1&size=2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"searchBy"
+									],
+									"query": [
+										{
+											"key": "firstName",
+											"value": "ali"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "size",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Aug 2020 17:17:10 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"search showing page 2 of 2\",\n    \"timestamp\": \"2020-08-03T17:17:10.761+00:00\",\n    \"result\": [\n        {\n            \"id\": 18,\n            \"firstName\": \"ali\",\n            \"lastName\": \"salami\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09124978560\",\n            \"gpa\": 3.1,\n            \"school\": {\n                \"id\": 2,\n                \"numberOfStudents\": 300,\n                \"numberOfFacultyMembers\": 150,\n                \"ranking\": 200,\n                \"address\": \"tehran,narmak,samangan,pelak23\",\n                \"phoneNumber\": \"02177536897\"\n            }\n        },\n        {\n            \"id\": 19,\n            \"firstName\": \"ali\",\n            \"lastName\": \"gholamian\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09136597845\",\n            \"gpa\": 3.7,\n            \"school\": {\n                \"id\": 1,\n                \"numberOfStudents\": 300,\n                \"numberOfFacultyMembers\": 150,\n                \"ranking\": 200,\n                \"address\": \"tehran\",\n                \"phoneNumber\": \"02188536897\"\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "search by gpa",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/student/searchBy?gpa=3.7",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"searchBy"
+									],
+									"query": [
+										{
+											"key": "gpa",
+											"value": "3.7"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Jul 2020 16:13:31 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"search\",\n    \"timestamp\": \"2020-07-30T16:13:31.654+00:00\",\n    \"result\": [\n        {\n            \"id\": 4,\n            \"firstName\": \"kamyar\",\n            \"lastName\": \"hassanzade\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09382723561\",\n            \"gpa\": 3.7,\n            \"school\": {\n                \"id\": 7,\n                \"numberOfStudents\": 170,\n                \"numberOfFacultyMembers\": 21,\n                \"ranking\": 700,\n                \"address\": \"tehran,valiasr.st,no,43\",\n                \"phoneNumber\": \"02178549621\"\n            }\n        },\n        {\n            \"id\": 16,\n            \"firstName\": \"kasra\",\n            \"lastName\": \"ghaemi\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09128974253\",\n            \"gpa\": 3.7,\n            \"school\": {\n                \"id\": 2,\n                \"numberOfStudents\": 300,\n                \"numberOfFacultyMembers\": 150,\n                \"ranking\": 200,\n                \"address\": \"tehran,narmak,samangan,pelak23\",\n                \"phoneNumber\": \"02177536897\"\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "search by parent firstName",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/student/searchBy?parentFirstName=hossein",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"searchBy"
+									],
+									"query": [
+										{
+											"key": "parentFirstName",
+											"value": "hossein"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 31 Jul 2020 09:48:43 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"search\",\n    \"timestamp\": \"2020-07-31T09:48:43.795+00:00\",\n    \"result\": [\n        {\n            \"id\": 15,\n            \"firstName\": \"emad\",\n            \"lastName\": \"arabalibeik\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09120804410\",\n            \"gpa\": 3.6,\n            \"school\": {\n                \"id\": 1,\n                \"numberOfStudents\": 300,\n                \"numberOfFacultyMembers\": 150,\n                \"ranking\": 200,\n                \"address\": \"tehran\",\n                \"phoneNumber\": \"02188536897\"\n            }\n        },\n        {\n            \"id\": 16,\n            \"firstName\": \"kasra\",\n            \"lastName\": \"ghaemi\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09128974253\",\n            \"gpa\": 3.7,\n            \"school\": {\n                \"id\": 2,\n                \"numberOfStudents\": 300,\n                \"numberOfFacultyMembers\": 150,\n                \"ranking\": 200,\n                \"address\": \"tehran,narmak,samangan,pelak23\",\n                \"phoneNumber\": \"02177536897\"\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "search by parent firstname and lastname",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/student/searchBy?parentFirstName=hossein&parentLastName=arabalibeik",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"searchBy"
+									],
+									"query": [
+										{
+											"key": "parentFirstName",
+											"value": "hossein"
+										},
+										{
+											"key": "parentLastName",
+											"value": "arabalibeik"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 31 Jul 2020 09:40:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"search\",\n    \"timestamp\": \"2020-07-31T09:40:07.597+00:00\",\n    \"result\": [\n        {\n            \"id\": 15,\n            \"firstName\": \"emad\",\n            \"lastName\": \"arabalibeik\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09120804410\",\n            \"gpa\": 3.6,\n            \"school\": {\n                \"id\": 1,\n                \"numberOfStudents\": 300,\n                \"numberOfFacultyMembers\": 150,\n                \"ranking\": 200,\n                \"address\": \"tehran\",\n                \"phoneNumber\": \"02188536897\"\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "search by last name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/searchBy?lastName=arabalibeik",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"searchBy"
+									],
+									"query": [
+										{
+											"key": "lastName",
+											"value": "arabalibeik"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Jul 2020 15:42:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"search\",\n    \"timestamp\": \"2020-07-30T15:42:07.813+00:00\",\n    \"result\": [\n        {\n            \"id\": 15,\n            \"firstName\": \"emad\",\n            \"lastName\": \"arabalibeik\",\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"09120804410\",\n            \"gpa\": 3.6,\n            \"school\": {\n                \"id\": 1,\n                \"numberOfStudents\": 300,\n                \"numberOfFacultyMembers\": 150,\n                \"ranking\": 200,\n                \"address\": \"tehran\",\n                \"phoneNumber\": \"02188536897\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "log in",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/student/logIn?userName=Admin&password=pass",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"logIn"
+							],
+							"query": [
+								{
+									"key": "userName",
+									"value": "Admin"
+								},
+								{
+									"key": "password",
+									"value": "pass"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/student/changePassword?id=4&oldPassword=watermelon&newPassword=honeybee",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"changePassword"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								},
+								{
+									"key": "oldPassword",
+									"value": "watermelon"
+								},
+								{
+									"key": "newPassword",
+									"value": "honeybee"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Emad arabalibeik/Desktop/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/student/addImage?id=4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"addImage"
+							],
+							"query": [
+								{
+									"key": "file",
+									"value": "C:\\Users\\Emad arabalibeik\\Desktop\\1593694731_IMG_3690.JPG",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "add image",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/Emad arabalibeik/Desktop/Untitled.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/student/addImage?id=4",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"addImage"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Aug 2020 20:34:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"عکس با موفقیت اضافه شد\",\n    \"timestamp\": \"2020-08-11T20:34:06.938+00:00\",\n    \"result\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "download image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/student/downloadFile/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"downloadFile",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/student/addCourse?student_id=38&course_id=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"addCourse"
+							],
+							"query": [
+								{
+									"key": "student_id",
+									"value": "38"
+								},
+								{
+									"key": "course_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "add course",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/addCourse?student_id=16&course_id=2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"addCourse"
+									],
+									"query": [
+										{
+											"key": "student_id",
+											"value": "16"
+										},
+										{
+											"key": "course_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Aug 2020 06:48:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"درس مورد نظر با موفقیت اضافه شد\",\n    \"timestamp\": \"2020-08-20T06:48:00.346+00:00\",\n    \"result\": null\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "index",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "13"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 17:51:51 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Index Page!!!"
+				}
+			]
+		},
+		{
+			"name": "add student to school",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/school/addStudent?school_id=10&student_id=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"school",
+						"addStudent"
+					],
+					"query": [
+						{
+							"key": "school_id",
+							"value": "10"
+						},
+						{
+							"key": "student_id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "add student to school 404 schol not found",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/school/addStudent?school_id=10&student_id=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"school",
+								"addStudent"
+							],
+							"query": [
+								{
+									"key": "school_id",
+									"value": "10"
+								},
+								{
+									"key": "student_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Jul 2020 12:16:07 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 404,\n    \"message\": \"Not Found Error!\",\n    \"timestamp\": \"2020-07-28T12:16:07.637+00:00\",\n    \"result\": \"school not found!\"\n}"
+				},
+				{
+					"name": "add student to school",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/school/addStudent?school_id=7&student_id=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"school",
+								"addStudent"
+							],
+							"query": [
+								{
+									"key": "school_id",
+									"value": "7"
+								},
+								{
+									"key": "student_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Jul 2020 12:07:52 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"add student to school\",\n    \"timestamp\": \"2020-07-28T12:07:52.384+00:00\",\n    \"result\": \"student added to school\"\n}"
+				},
+				{
+					"name": "add student to school 404",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/school/addStudent?school_id=7&student_id=7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"school",
+								"addStudent"
+							],
+							"query": [
+								{
+									"key": "school_id",
+									"value": "7"
+								},
+								{
+									"key": "student_id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Jul 2020 12:15:47 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 404,\n    \"message\": \"Not Found Error!\",\n    \"timestamp\": \"2020-07-28T12:15:47.149+00:00\",\n    \"result\": \"student not found!\"\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,16 @@
+-100 : code not match
+-101 : noName
+-102 : noPhone
+-103 : noUsername
+-104 : noAddress
+-105 : noGpa
+-106 : noPass
+-107 : usernameTaken
+-108 : wrongOldPass
+-109 : user or pass wrong
+-110 : failed to send sms code
+-111 : bad file name
+-112 : no teacher
+-113 : no unit number
+-114 : no course name
+-115 : no photo
