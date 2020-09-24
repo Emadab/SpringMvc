@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 import com.example.demo.Model.Student;
-import org.codehaus.jackson.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "course")

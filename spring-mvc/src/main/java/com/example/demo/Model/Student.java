@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Set;
 import com.example.demo.Model.Student;
 import com.example.demo.Model.StudentImage;
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.annotate.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
 @Entity
 @Table(name = "student")

@@ -1,6 +1,6 @@
 package com.example.demo.Model;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import com.example.demo.Model.Student;
 import javax.persistence.*;
