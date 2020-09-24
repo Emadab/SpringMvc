@@ -47,4 +47,6 @@ public interface StudentService {
 	ResponseModel addCourseToStudentById(int student_id, int course_id);
 
 	void checkStudentActivity();
+
+	ResponseModel getProfile();
 }

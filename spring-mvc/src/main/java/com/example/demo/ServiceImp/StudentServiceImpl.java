@@ -1,5 +1,6 @@
 package com.example.demo.ServiceImp;
 
+import com.example.demo.Model.AccessToken.OAuthAccessToken;
 import com.example.demo.Repository.*;
 import com.example.demo.Service.StudentService;
 import com.example.demo.Util.GlobalFunction;
@@ -7,10 +8,14 @@ import com.example.demo.Util.Msg;
 import com.example.demo.Model.*;
 import com.example.demo.Model.PhoneValidationCode.PhoneValidationCode;
 import com.example.demo.Model.ResponseModel.ResponseModel;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 import org.hibernate.Hibernate;
+import org.hibernate.validator.internal.metadata.core.AnnotationProcessingOptionsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.PageRequest;
@@ -20,6 +25,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -32,6 +40,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.sql.Timestamp;
 import java.util.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 @Service
@@ -50,6 +60,8 @@ public class StudentServiceImpl implements StudentService {
 	private StudnetImageRepository studnetImageRepository;
 	@Autowired
 	private CourseRepository courseRepository;
+	@Autowired
+	private AccessTokenRepository accessTokenRepository;
 
 	@Override
 	public ResponseModel addNewStudent (Student student, int validationCode) {
@@ -218,7 +230,7 @@ public class StudentServiceImpl implements StudentService {
 		List<Student> studentList2 = (studentRepository.searchBy(firstName.orElse(""), lastName.orElse(""),
 				address.orElse(""), phoneNumber.orElse(""),userName.orElse(""),
 				gpa.orElse(-1.0f), pageable));
-		if(studentList1.isEmpty()){
+		if(studentList1 == null){
 			responseModel.setResult(studentList2);
 			return responseModel;
 		}
@@ -266,11 +278,34 @@ public class StudentServiceImpl implements StudentService {
 				"sign-in",
 				null);
 
-		Student student = studentRepository.findByUserName(userName);
-		if (student.getPassword().equals(GlobalFunction.stringToMd5(password))) {
-			responseModel.setMessage(Msg.successLogin);
-			student.setLastLogIn(new Timestamp(System.currentTimeMillis()));
-			entityManager.persist(student);
+		OkHttpClient client = new OkHttpClient();
+		client.setConnectTimeout(2, TimeUnit.MINUTES);
+		client.setReadTimeout(2, TimeUnit.MINUTES);
+
+		try {
+			Student student = studentRepository.findByUserName(userName);
+			if (student.getPassword().equals(GlobalFunction.stringToMd5(password))) {
+				responseModel.setMessage(Msg.successLogin);
+				student.setLastLogIn(new Timestamp(System.currentTimeMillis()));
+				Request request = new Request.Builder()
+						.url("http://localhost:8080/oauth/" +
+								"token?client_id=adminapp" +
+								"&client_secret=adminapp" +
+								"&grant_type=password" +
+								"&username=" + userName +
+								"&password=" + GlobalFunction.stringToMd5(password))
+						.post(RequestBody.create(null, new byte[0]))
+						.build();
+				ObjectMapper mapper = new ObjectMapper();
+				responseModel.setResult(mapper.readTree(client.newCall(request).execute().body().string()));
+				studentRepository.save(student);
+				return responseModel;
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			responseModel.setStatus(-1);
+			responseModel.setMessage("exception");
 			return responseModel;
 		}
 		responseModel.setStatus(-109);
@@ -314,9 +349,12 @@ public class StudentServiceImpl implements StudentService {
 				200,
 				"check sms code",
 				null);
-		if(phoneValidationCode.getCode() ==
-				phoneValidationCodeRepository.
-						findByPhoneNumber(phoneValidationCode.getPhoneNumber()).getCode()){
+		PhoneValidationCode pvcode = phoneValidationCodeRepository.
+				findByPhoneNumber(phoneValidationCode.getPhoneNumber());
+		if(phoneValidationCode.getCode() == pvcode.getCode()){
+			Student s = studentRepository.findByPhoneNumber(pvcode.getPhoneNumber());
+			s.setEnabled(true);
+			studentRepository.save(s);
 			responseModel.setMessage(Msg.smsCodeMatch);
 			return responseModel;
 		}
@@ -445,5 +483,20 @@ public class StudentServiceImpl implements StudentService {
 				}
 			}
 		}
+	}
+
+	@Override
+	public ResponseModel getProfile() {
+		ResponseModel responseModel = new ResponseModel(
+				200,
+				"profile",
+				null);
+
+		Authentication authentication = SecurityContextHolder.getContext()
+				.getAuthentication();
+
+		UserDetails userDetail = (UserDetails) authentication.getPrincipal();
+		responseModel.setResult(studentRepository.findByUserName(userDetail.getUsername()));
+		return responseModel;
 	}
 }

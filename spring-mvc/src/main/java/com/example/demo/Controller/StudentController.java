@@ -176,4 +176,11 @@ public class StudentController {
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
+
+	@RequestMapping(value = "/profile", method = RequestMethod.GET)
+	@ResponseBody
+	ResponseEntity getProfile(){
+		ResponseModel responseModel = studentService.getProfile();
+		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
+	}
 }

@@ -5,8 +5,6 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import com.example.demo.Model.Student;
-import com.example.demo.Model.StudentImage;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
@@ -35,6 +33,10 @@ public class Student {
 	private String password;
 	@Column(name = "last_log_in")
 	private Timestamp lastLogIn;
+	@Column(name = "role")
+	private String role;
+	@Column(name = "enabled")
+	private boolean enabled;
 
 
 	@ManyToOne
@@ -92,6 +94,7 @@ public class Student {
 		this.courses = courses;
 	}
 
+	@JsonIgnore
 	public Set<Course> getCourses() {
 		return courses;
 	}
@@ -194,5 +197,25 @@ public class Student {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@JsonIgnore
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	@JsonIgnore
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	@JsonIgnore
+	public String getRole() {
+		return role;
+	}
+
+	@JsonIgnore
+	public void setRole(String role) {
+		this.role = role;
 	}
 }

@@ -1411,7 +1411,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/student/get/4",
+							"raw": "localhost:8080/student/get/38",
 							"host": [
 								"localhost"
 							],
@@ -1419,7 +1419,7 @@
 							"path": [
 								"student",
 								"get",
-								"4"
+								"38"
 							]
 						}
 					},
@@ -1520,11 +1520,23 @@
 				},
 				{
 					"name": "add parent to student by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"fereshte\",\r\n    \"lastName\": \"akhgar\",\r\n    \"role\": \"m\",\r\n    \"phoneNumber\": \"09128767894\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:8080/student/addParent?firstName=hossein&lastName=ghaemi&role=f&phoneNumber=09127955648&student_id=16",
+							"raw": "localhost:8080/student/addParent?student_id=4",
 							"host": [
 								"localhost"
 							],
@@ -1535,24 +1547,8 @@
 							],
 							"query": [
 								{
-									"key": "firstName",
-									"value": "hossein"
-								},
-								{
-									"key": "lastName",
-									"value": "ghaemi"
-								},
-								{
-									"key": "role",
-									"value": "f"
-								},
-								{
-									"key": "phoneNumber",
-									"value": "09127955648"
-								},
-								{
 									"key": "student_id",
-									"value": "16"
+									"value": "4"
 								}
 							]
 						}
@@ -1973,7 +1969,7 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:8080/student/searchBy?firstName=ali&page=1&size=2",
+							"raw": "localhost:8080/student/searchBy?firstName=alia&page=0&size=100&parentFirstName=hossein&address=tehran",
 							"host": [
 								"localhost"
 							],
@@ -1985,15 +1981,28 @@
 							"query": [
 								{
 									"key": "firstName",
-									"value": "ali"
+									"value": "alia"
 								},
 								{
 									"key": "page",
-									"value": "1"
+									"value": "0"
 								},
 								{
 									"key": "size",
-									"value": "2"
+									"value": "100"
+								},
+								{
+									"key": "gpa",
+									"value": "3.0",
+									"disabled": true
+								},
+								{
+									"key": "parentFirstName",
+									"value": "hossein"
+								},
+								{
+									"key": "address",
+									"value": "tehran"
 								}
 							]
 						}
@@ -2488,7 +2497,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/student/changePassword?id=4&oldPassword=watermelon&newPassword=honeybee",
+							"raw": "localhost:8080/student/changePassword?id=38&oldPassword=1234&newPassword=pass",
 							"host": [
 								"localhost"
 							],
@@ -2500,15 +2509,15 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "4"
+									"value": "38"
 								},
 								{
 									"key": "oldPassword",
-									"value": "watermelon"
+									"value": "1234"
 								},
 								{
 									"key": "newPassword",
-									"value": "honeybee"
+									"value": "pass"
 								}
 							]
 						}
@@ -2526,12 +2535,12 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/C:/Users/Emad arabalibeik/Desktop/Untitled.png"
+									"src": "/C:/Users/Emad arabalibeik/Desktop/1593694731_IMG_3690.JPG"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:8080/student/addImage?id=4",
+							"raw": "localhost:8080/student/addImage?id=38",
 							"host": [
 								"localhost"
 							],
@@ -2542,13 +2551,8 @@
 							],
 							"query": [
 								{
-									"key": "file",
-									"value": "C:\\Users\\Emad arabalibeik\\Desktop\\1593694731_IMG_3690.JPG",
-									"disabled": true
-								},
-								{
 									"key": "id",
-									"value": "4"
+									"value": "38"
 								}
 							]
 						}
@@ -2644,7 +2648,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/student/addCourse?student_id=38&course_id=3",
+							"raw": "localhost:8080/student/addCourse?student_id=387&course_id=3",
 							"host": [
 								"localhost"
 							],
@@ -2656,7 +2660,7 @@
 							"query": [
 								{
 									"key": "student_id",
-									"value": "38"
+									"value": "387"
 								},
 								{
 									"key": "course_id",
@@ -2720,6 +2724,107 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"status\": 200,\n    \"message\": \"درس مورد نظر با موفقیت اضافه شد\",\n    \"timestamp\": \"2020-08-20T06:48:00.346+00:00\",\n    \"result\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/student/profile?access_token=fc3ad198-8681-46d4-a330-8a466953ab16",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"profile"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "fc3ad198-8681-46d4-a330-8a466953ab16"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "profile",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/student/profile?access_token=fc3ad198-8681-46d4-a330-8a466953ab16",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"student",
+										"profile"
+									],
+									"query": [
+										{
+											"key": "access_token",
+											"value": "fc3ad198-8681-46d4-a330-8a466953ab16"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 24 Sep 2020 17:24:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=20"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"profile\",\n    \"timestamp\": 1600968235115,\n    \"result\": {\n        \"id\": 38,\n        \"firstName\": \"emad\",\n        \"lastName\": \"arabalibeik\",\n        \"address\": \"tehran\",\n        \"phoneNumber\": \"09120804410\",\n        \"gpa\": 3.8,\n        \"userName\": \"Admin\",\n        \"school\": {\n            \"id\": 1,\n            \"numberOfStudents\": 300,\n            \"numberOfFacultyMembers\": 150,\n            \"ranking\": 200,\n            \"address\": \"tehran\",\n            \"phoneNumber\": \"02188536897\",\n            \"userName\": \"\"\n        },\n        \"parentList\": [\n            {\n                \"id\": 64,\n                \"firstName\": \"hossein\",\n                \"lastName\": \"arabalibeik\",\n                \"role\": \"f\",\n                \"phoneNumber\": \"09122466620\"\n            },\n            {\n                \"id\": 65,\n                \"firstName\": \"zohre\",\n                \"lastName\": \"jalali\",\n                \"role\": \"m\",\n                \"phoneNumber\": \"09122467894\"\n            }\n        ],\n        \"studentImage\": null\n    }\n}"
 						}
 					]
 				}
@@ -2795,7 +2900,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/school/addStudent?school_id=10&student_id=3",
+					"raw": "localhost:8080/school/addStudent?school_id=1&student_id=38",
 					"host": [
 						"localhost"
 					],
@@ -2807,11 +2912,11 @@
 					"query": [
 						{
 							"key": "school_id",
-							"value": "10"
+							"value": "1"
 						},
 						{
 							"key": "student_id",
-							"value": "3"
+							"value": "38"
 						}
 					]
 				}

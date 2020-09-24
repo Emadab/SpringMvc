@@ -70,12 +70,13 @@
         <sec:csrf disabled="true"/>
         <sec:anonymous enabled="true"/>
         <sec:intercept-url pattern="/**"  method="OPTIONS" access="isAnonymous()"/>
-        <sec:intercept-url pattern="/api/user/**" access="hasAnyRole('ROLE_APP','ROLE_ADMIN','ROLE_SUPPORTER','ROLE_TEACHER','ROLE_GHALAMCHI')"/>
-        <sec:intercept-url pattern="/api/admin/**" access="hasRole('ROLE_ADMIN')"/>
-        <sec:intercept-url pattern="/api/ghalamchi/**" access="hasRole('ROLE_GHALAMCHI')"/>
-        <sec:intercept-url pattern="/api/teacher/**" access="hasAnyRole('ROLE_ADMIN','ROLE_SUPPORTER','ROLE_TEACHER')"/>
-        <sec:intercept-url pattern="/supporter/**" access="hasAnyRole('ROLE_SUPPORTER','ROLE_ADMIN')"/>
-        <sec:intercept-url pattern="/api/user/slider" access="permitAll()"/>
+        <sec:intercept-url pattern="/student/login" access="permitAll()"/>
+        <sec:intercept-url pattern="/student/get" access="hasAnyRole('ROLE_APP','ROLE_ADMIN')"/>
+        <sec:intercept-url pattern="/student/searchBy" access="hasAnyRole('ROLE_APP','ROLE_ADMIN')"/>
+        <sec:intercept-url pattern="/student/ChangePassword" access="hasAnyRole('ROLE_APP','ROLE_ADMIN','ROLE_STUDENT')"/>
+        <sec:intercept-url pattern="/student/addImage" access="hasAnyRole('ROLE_APP','ROLE_ADMIN','ROLE_STUDENT')"/>
+        <sec:intercept-url pattern="/student/parentList" access="hasAnyRole('ROLE_APP','ROLE_ADMIN')"/>
+        <sec:intercept-url pattern="/student/profile" access="hasAnyRole('ROLE_APP','ROLE_STUDENT')"/>
         <sec:custom-filter ref="resourceServerFilter" before="PRE_AUTH_FILTER"/>
         <sec:access-denied-handler ref="oAuth2AccessDeniedHandler"/>
     </sec:http>

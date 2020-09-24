@@ -16,19 +16,13 @@
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
         <sourceRoots>
-          <root url="file://$MODULE_DIR$/src" />
+          <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/main/resources" />
         </sourceRoots>
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration>
-        <fileset id="fileset" name="S" removed="false">
-          <file>file://$MODULE_DIR$/web/WEB-INF/s.xml</file>
-          <file>file://$MODULE_DIR$/web/WEB-INF/dispatcher-servlet.xml</file>
-          <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext.xml</file>
-          <file>file://$MODULE_DIR$/web/WEB-INF/spring-security.xml</file>
-        </fileset>
-      </configuration>
+      <configuration />
     </facet>
     <facet type="jpa" name="JPA">
       <configuration>
@@ -84,6 +78,8 @@
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:4.2.12.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:4.2.12.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.9" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-jpa:2.1.10.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.1.10.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.9.3" level="project" />
@@ -123,7 +119,5 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.9" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
   </component>
 </module>

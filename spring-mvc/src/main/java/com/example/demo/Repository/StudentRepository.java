@@ -13,6 +13,9 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	@Query("FROM Student")
 	List<Student> findAll(Pageable pageable);
 
+	@Query("select s from Student s where s.phoneNumber like ?1")
+	Student findByPhoneNumber(String phoneNumber);
+
 	@Query ("select s from Student s where s.id = ?1")
 	Student findById(int id);
 

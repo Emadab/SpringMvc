@@ -14,6 +14,12 @@ public class ResponseModel {
     public ResponseModel() {
     }
 
+    public ResponseModel(int status, String message) {
+        this.status = status;
+        this.message = message;
+    }
+
+
     public ResponseModel(int status, String message, Object result) {
         this.status = status;
         this.message = message;
