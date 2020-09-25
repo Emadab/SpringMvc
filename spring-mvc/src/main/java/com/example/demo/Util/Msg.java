@@ -73,4 +73,10 @@ public class Msg {
 	public static String noCourseUnitNo = "لطفا تعداد واحد را وارد کنید";
 
 	public static String noPhoto = "لطفا عکس را آپلود کنید";
+
+	public static String noRanking = "لطفا رتبه مدرسه را وارد کنید";
+
+	public static String noFaculty = "لطفا تعداد اعضای آموزشی را وارد کنید";
+
+	public static String noStudent = "لطفا تعداد دانش آموزان را وارد کنید";
 }

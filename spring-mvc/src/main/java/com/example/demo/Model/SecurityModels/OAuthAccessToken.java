@@ -1,4 +1,4 @@
-package com.example.demo.Model.AccessToken;
+package com.example.demo.Model.SecurityModels;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

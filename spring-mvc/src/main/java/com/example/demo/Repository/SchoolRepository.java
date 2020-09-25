@@ -25,4 +25,10 @@ public interface SchoolRepository extends CrudRepository<School,Integer> {
 
 	@Query("select s from School s where s.ranking=?1 and s.numberOfFacultyMembers=?2")
 	List<School> findAllByNumberOfFacultyMembersAndRanking(long ranking, int numberOfFacultyMembers, Pageable pageable);
+
+	@Query("select s from School s where s.userName like ?1")
+	School findByUserName(String userName);
+
+	@Query
+	boolean existsByUserName(String userName);
 }

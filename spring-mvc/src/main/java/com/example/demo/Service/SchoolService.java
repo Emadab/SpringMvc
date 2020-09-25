@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface SchoolService {
-	String addNewSchool (int numberOfStudents, int numberOfFacultyMembers, long ranking, String address,
-	                     String phoneNumber);
+	ResponseModel addNewSchool (School school);
+
 	Iterable<School> findAll(int page, int size);
 
 	String deleteById (int id);
@@ -25,4 +25,8 @@ public interface SchoolService {
 	                      int page, int size);
 
 	ResponseModel newCourse(Course course);
+
+	ResponseModel signIn(String userName, String password);
+
+	ResponseModel getStudents();
 }

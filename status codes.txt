@@ -14,3 +14,6 @@
 -113 : no unit number
 -114 : no course name
 -115 : no photo
+-116 : no ranking
+-117 : no faculty
+-118 : no student

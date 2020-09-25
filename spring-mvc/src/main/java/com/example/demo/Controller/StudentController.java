@@ -20,7 +20,7 @@ public class StudentController {
 	@Autowired
 	private StudentServiceImpl studentService;
 
-	@RequestMapping(value="/add", method= RequestMethod.POST)
+	@RequestMapping(value="/signUp", method= RequestMethod.POST)
 	@ResponseBody
 	ResponseEntity addNewStudent (@RequestBody Student student,
 	                                                   @RequestParam int smsCode){
@@ -28,12 +28,12 @@ public class StudentController {
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value="/adds", method= RequestMethod.POST)
+	@RequestMapping(value="/admin/adds", method= RequestMethod.POST)
 	@ResponseBody Object addsNewStudent (@RequestBody Student student){
 		return student;
 	}
 
-	@RequestMapping("/all")
+	@RequestMapping("/admin/all")
 	@ResponseBody
 	ResponseEntity getAllStudents(@RequestParam(defaultValue = "0") int page,
 	                                                   @RequestParam(defaultValue = "5") int size){
@@ -44,7 +44,7 @@ public class StudentController {
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/delete/{id}", method=RequestMethod.GET)
 	@ResponseBody
 	ResponseEntity deleteById(@PathVariable("id") int id) {
 		ResponseModel responseModel = new ResponseModel(
@@ -54,7 +54,7 @@ public class StudentController {
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value="/get/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/get/{id}", method=RequestMethod.GET)
 	@ResponseBody
 	ResponseEntity getById(@PathVariable("id") int id) {
 		ResponseModel responseModel = new ResponseModel(
@@ -64,7 +64,7 @@ public class StudentController {
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value="/addParent", method=RequestMethod.GET)
+	@RequestMapping(value="/user/addParent", method=RequestMethod.GET)
 	@ResponseBody
 	ResponseEntity addParent(@RequestBody Parent parent,
 	                                              @RequestParam int student_id){
@@ -77,7 +77,7 @@ public class StudentController {
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value="/parentList/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/parentList/{id}", method=RequestMethod.GET)
 	@ResponseBody
 	ResponseEntity getParentList(@PathVariable int id){
 		ResponseModel responseModel = new ResponseModel(
@@ -87,7 +87,7 @@ public class StudentController {
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value="/findAllSortedBy", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/findAllSortedBy", method=RequestMethod.GET)
 	@ResponseBody
 	ResponseEntity findAllSortedBy(@RequestParam String sortBy, @RequestParam String direction,
 	                                                    @RequestParam(defaultValue = "0") int page,
@@ -100,7 +100,7 @@ public class StudentController {
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value="/searchBy", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/searchBy", method=RequestMethod.GET)
 	@ResponseBody
 	ResponseEntity searchBy(@RequestParam Optional<String> firstName,
 	                                             @RequestParam Optional<String> lastName,
@@ -117,38 +117,37 @@ public class StudentController {
 			return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value="/changePassword", method=RequestMethod.GET)
+	@RequestMapping(value="/user/changePassword", method=RequestMethod.GET)
 	@ResponseBody
-	ResponseEntity changePassword (@RequestParam int id,
-	                                                    @RequestParam String oldPassword,
+	ResponseEntity changePassword (@RequestParam String oldPassword,
 	                                                    @RequestParam String newPassword){
-		ResponseModel responseModel = studentService.changePassword(id, oldPassword, newPassword);
+		ResponseModel responseModel = studentService.changePassword(oldPassword, newPassword);
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
 	@RequestMapping(value="/logIn", method=RequestMethod.GET)
 	@ResponseBody
 	ResponseEntity singIn(@RequestParam String userName,
-	                                           @RequestParam String password){
+	                      @RequestParam String password){
 		ResponseModel responseModel = studentService.signIn(userName, password);
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value = "/sendCode")
+	@RequestMapping(value = "/user/sendCode")
 	@ResponseBody
 	ResponseEntity sendCode(@RequestParam String phoneNumber){
 		ResponseModel responseModel = studentService.sendMessageCode(phoneNumber);
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value = "/checkCode", method = RequestMethod.GET)
+	@RequestMapping(value = "/user/checkCode", method = RequestMethod.GET)
 	@ResponseBody
 	ResponseEntity checkCode(@RequestBody PhoneValidationCode phoneValidationCode){
 		ResponseModel responseModel = studentService.checkCode(phoneValidationCode);
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value = "/addImage", method = RequestMethod.POST)
+	@RequestMapping(value = "/user/addImage", method = RequestMethod.POST)
 	@ResponseBody
 	ResponseEntity addImage(@RequestParam("file") MultipartFile file,
 	                                             @RequestParam int id){
@@ -159,13 +158,13 @@ public class StudentController {
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value="/downloadFile/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="user/downloadFile/{id}", method=RequestMethod.GET)
 	@ResponseBody
 	ResponseEntity downloadFile(@PathVariable int id){
 		return studentService.downloadFile(id);
 	}
 
-	@RequestMapping(value = "/addCourse", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/addCourse", method = RequestMethod.POST)
 	@ResponseBody
 	ResponseEntity addCourseToStudent(@RequestParam int student_id,
 	                                                       @RequestParam int course_id){
@@ -177,7 +176,7 @@ public class StudentController {
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value = "/profile", method = RequestMethod.GET)
+	@RequestMapping(value = "/user/profile", method = RequestMethod.GET)
 	@ResponseBody
 	ResponseEntity getProfile(){
 		ResponseModel responseModel = studentService.getProfile();

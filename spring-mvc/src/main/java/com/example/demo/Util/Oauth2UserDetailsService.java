@@ -21,7 +21,7 @@ public class Oauth2UserDetailsService implements UserDetailsService {
     private final static Logger logger = Logger.getLogger(Oauth2UserDetailsService.class);
     private DataSource dataSource;
     private final JdbcTemplate jdbcTemplate;
-    private final static String selectUserByUserNameSql = "SELECT user_name ,password ,role ,enabled  FROM student where user_name =? ";
+    private final static String selectUserByUserNameSql = "SELECT user_name ,password ,role ,enabled  FROM user where user_name =? ";
     public Oauth2UserDetailsService(DataSource dataSource) {
         Assert.notNull(dataSource, "DataSource required");
         this.dataSource = dataSource;

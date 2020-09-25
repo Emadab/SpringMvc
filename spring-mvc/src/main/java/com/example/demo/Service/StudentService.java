@@ -32,7 +32,7 @@ public interface StudentService {
 	                       Optional<Float> gpa, Optional<String> parentFirstName,
 	                       Optional<String> parentLastName, int page, int size);
 
-	ResponseModel changePassword(int student_id, String oldPassword, String newPassword);
+	ResponseModel changePassword(String oldPassword, String newPassword);
 
 	ResponseModel signIn(String userName, String password);
 

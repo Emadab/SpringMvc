@@ -1,6 +1,6 @@
 package com.example.demo.ServiceImp;
 
-import com.example.demo.Model.AccessToken.OAuthAccessToken;
+import com.example.demo.Model.SecurityModels.User;
 import com.example.demo.Repository.*;
 import com.example.demo.Service.StudentService;
 import com.example.demo.Util.GlobalFunction;
@@ -8,14 +8,12 @@ import com.example.demo.Util.Msg;
 import com.example.demo.Model.*;
 import com.example.demo.Model.PhoneValidationCode.PhoneValidationCode;
 import com.example.demo.Model.ResponseModel.ResponseModel;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 import org.hibernate.Hibernate;
-import org.hibernate.validator.internal.metadata.core.AnnotationProcessingOptionsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.PageRequest;
@@ -40,7 +38,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.sql.Timestamp;
 import java.util.*;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -55,6 +52,8 @@ public class StudentServiceImpl implements StudentService {
 	@Autowired
 	private ParentRepository parentRepository;
 	@Autowired
+	private SchoolRepository schoolRepository;
+	@Autowired
 	private PhoneValidationCodeRepository phoneValidationCodeRepository;
 	@Autowired
 	private StudnetImageRepository studnetImageRepository;
@@ -62,6 +61,8 @@ public class StudentServiceImpl implements StudentService {
 	private CourseRepository courseRepository;
 	@Autowired
 	private AccessTokenRepository accessTokenRepository;
+	@Autowired
+	private UserRepository userRepository;
 
 	@Override
 	public ResponseModel addNewStudent (Student student, int validationCode) {
@@ -114,14 +115,15 @@ public class StudentServiceImpl implements StudentService {
 		}
 		
 		//checks if username is unique
-		if(studentRepository.existsByUserName(student.getUserName())){
+		if(userRepository.existsByUserName(student.getUserName())){
 			responseModel.setResult(Msg.usernameTaken);
 			responseModel.setStatus(-107);
 			return responseModel;
 		}
 		String encryptedPass = GlobalFunction.stringToMd5(student.getPassword());
 		student.setPassword(encryptedPass);
-		entityManager.persist(student);
+		userRepository.save(new User(student.getUserName(), encryptedPass, "ROLE_STUDENT", false));
+		studentRepository.save(student);
 		phoneValidationCodeRepository.deleteByPhoneNumber(student.getPhoneNumber());
 		responseModel.setResult(Msg.successSignUp);
 		return responseModel;
@@ -252,17 +254,21 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Override
-	public ResponseModel changePassword(int student_id, String oldPassword, String newPassword) {
+	public ResponseModel changePassword(String oldPassword, String newPassword) {
 
 		ResponseModel responseModel = new ResponseModel(
 				200,
 				"change password",
 				null);
 
-		Student student = entityManager.find(Student.class, student_id);
+		Authentication authentication = SecurityContextHolder.getContext()
+				.getAuthentication();
+		UserDetails userDetail = (UserDetails) authentication.getPrincipal();
+
+		Student student = studentRepository.findByUserName(userDetail.getUsername());
 		if(student.getPassword().equals(GlobalFunction.stringToMd5(oldPassword))){
 			student.setPassword(GlobalFunction.stringToMd5(newPassword));
-			entityManager.persist(student);
+			studentRepository.save(student);
 			responseModel.setMessage(Msg.successPassChange);
 			return responseModel;
 		}
@@ -282,31 +288,33 @@ public class StudentServiceImpl implements StudentService {
 		client.setConnectTimeout(2, TimeUnit.MINUTES);
 		client.setReadTimeout(2, TimeUnit.MINUTES);
 
-		try {
-			Student student = studentRepository.findByUserName(userName);
+
+		Student student = studentRepository.findByUserName(userName);
+		if(studentRepository.existsByUserName(userName)) {
 			if (student.getPassword().equals(GlobalFunction.stringToMd5(password))) {
-				responseModel.setMessage(Msg.successLogin);
-				student.setLastLogIn(new Timestamp(System.currentTimeMillis()));
-				Request request = new Request.Builder()
-						.url("http://localhost:8080/oauth/" +
-								"token?client_id=adminapp" +
-								"&client_secret=adminapp" +
-								"&grant_type=password" +
-								"&username=" + userName +
-								"&password=" + GlobalFunction.stringToMd5(password))
-						.post(RequestBody.create(null, new byte[0]))
-						.build();
-				ObjectMapper mapper = new ObjectMapper();
-				responseModel.setResult(mapper.readTree(client.newCall(request).execute().body().string()));
-				studentRepository.save(student);
-				return responseModel;
+				try {
+					responseModel.setMessage(Msg.successLogin);
+					student.setLastLogIn(new Timestamp(System.currentTimeMillis()));
+					Request request = new Request.Builder()
+							.url("http://localhost:8080/oauth/" +
+									"token?client_id=adminapp" +
+									"&client_secret=adminapp" +
+									"&grant_type=password" +
+									"&username=" + userName +
+									"&password=" + GlobalFunction.stringToMd5(password))
+							.post(RequestBody.create(null, new byte[0]))
+							.build();
+					ObjectMapper mapper = new ObjectMapper();
+					responseModel.setResult(mapper.readTree(client.newCall(request).execute().body().string()));
+					studentRepository.save(student);
+					return responseModel;
+				} catch (Exception e) {
+					e.printStackTrace();
+					responseModel.setStatus(-1);
+					responseModel.setMessage("exception");
+					return responseModel;
+				}
 			}
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			responseModel.setStatus(-1);
-			responseModel.setMessage("exception");
-			return responseModel;
 		}
 		responseModel.setStatus(-109);
 		responseModel.setMessage(Msg.failedLogin);
@@ -353,8 +361,7 @@ public class StudentServiceImpl implements StudentService {
 				findByPhoneNumber(phoneValidationCode.getPhoneNumber());
 		if(phoneValidationCode.getCode() == pvcode.getCode()){
 			Student s = studentRepository.findByPhoneNumber(pvcode.getPhoneNumber());
-			s.setEnabled(true);
-			studentRepository.save(s);
+			userRepository.save(userRepository.findByUserName(s.getUserName()).setEnabled(true));
 			responseModel.setMessage(Msg.smsCodeMatch);
 			return responseModel;
 		}
@@ -499,4 +506,6 @@ public class StudentServiceImpl implements StudentService {
 		responseModel.setResult(studentRepository.findByUserName(userDetail.getUsername()));
 		return responseModel;
 	}
+
+
 }
