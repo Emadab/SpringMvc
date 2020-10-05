@@ -8,55 +8,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="736ea592-bd22-4063-a10b-973f175c1283" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Model/SecurityModels/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Repository/UserRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/SecurityModels/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Model/SecurityModels/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Repository/UserRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/myApp.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/LogInController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/SignUpController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Util/LogMsg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Postman Exports/SpringBoot-test.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Postman Exports/SpringBoot-test.postman_collection.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Controller/SchoolController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Controller/SchoolController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Controller/StudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Model/AccessToken/OAuthAccessToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Model/SecurityModels/OAuthAccessToken.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Model/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Model/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Repository/AccessTokenRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Repository/AccessTokenRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Repository/SchoolRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Repository/SchoolRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Repository/StudentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Repository/StudentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Model/SecurityModels/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Model/SecurityModels/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Service/SchoolService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Service/SchoolService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Service/StudentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Service/StudentService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/ServiceImp/SchoolServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/ServiceImp/SchoolServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/ServiceImp/StudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/ServiceImp/StudentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Util/Msg.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Util/Msg.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Util/Oauth2UserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Util/Oauth2UserDetailsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Util/GlobalFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Util/GlobalFunction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/spring-security.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/spring-security.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/SchoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/SchoolController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/AccessToken/OAuthAccessToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/SecurityModels/OAuthAccessToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Repository/AccessTokenRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repository/AccessTokenRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Repository/SchoolRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repository/SchoolRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Service/SchoolService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Service/SchoolService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Service/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/SecurityModels/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/SecurityModels/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/ServiceImp/SchoolServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/ServiceImp/SchoolServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/ServiceImp/StudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/ServiceImp/StudentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Util/Msg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Util/Msg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Util/Oauth2UserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Util/Oauth2UserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Util/GlobalFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Util/GlobalFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/SchoolController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/SchoolController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/StudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Model/AccessToken/OAuthAccessToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Model/SecurityModels/OAuthAccessToken.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Model/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Model/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Repository/AccessTokenRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Repository/AccessTokenRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Repository/SchoolRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Repository/SchoolRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Repository/StudentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Repository/StudentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Model/SecurityModels/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Model/SecurityModels/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Service/SchoolService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Service/SchoolService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Service/StudentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Service/StudentService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/ServiceImp/SchoolServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/ServiceImp/SchoolServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/ServiceImp/StudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/ServiceImp/StudentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Util/Msg.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Util/Msg.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Util/Oauth2UserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Util/Oauth2UserDetailsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Util/GlobalFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Util/GlobalFunction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/spring-security.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/spring-security.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../status codes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../status codes.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,8 +86,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -245,6 +231,15 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test1 database" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
             </expand>
             <select />
           </treeState>
@@ -271,6 +266,14 @@
       <workItem from="1600970074865" duration="4530000" />
       <workItem from="1601011810022" duration="9492000" />
       <workItem from="1601030052335" duration="6000" />
+      <workItem from="1601030655862" duration="359000" />
+      <workItem from="1601031164962" duration="196000" />
+      <workItem from="1601100874656" duration="80000" />
+      <workItem from="1601457601903" duration="3233000" />
+      <workItem from="1601461337870" duration="927000" />
+      <workItem from="1601796009305" duration="5992000" />
+      <workItem from="1601884286270" duration="2394000" />
+      <workItem from="1601892715603" duration="1972000" />
     </task>
     <servers />
   </component>
@@ -293,62 +296,62 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="465" y="92" key="#Tomcat_8.5.51/0.0.1536.864@0.0.1536.864" timestamp="1600248868261" />
-    <state x="361" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600936500314">
+    <state x="361" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601799665162">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1600936500314" />
+    <state x="361" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1601799665162" />
     <state x="574" y="143" key="#com.intellij.ide.util.MemberChooser" timestamp="1601029445907">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="574" y="143" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1601029445907" />
-    <state width="1247" height="262" key="GridCell.Tab.0.bottom" timestamp="1601030011945">
+    <state width="1247" height="225" key="GridCell.Tab.0.bottom" timestamp="1601894688874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1247" height="262" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1601030011945" />
-    <state width="1247" height="262" key="GridCell.Tab.0.center" timestamp="1601030011945">
+    <state width="1247" height="225" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1601894688874" />
+    <state width="1247" height="225" key="GridCell.Tab.0.center" timestamp="1601894688874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1247" height="262" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1601030011945" />
-    <state width="1247" height="262" key="GridCell.Tab.0.left" timestamp="1601030011945">
+    <state width="1247" height="225" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1601894688874" />
+    <state width="1247" height="225" key="GridCell.Tab.0.left" timestamp="1601894688874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1247" height="262" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1601030011945" />
-    <state width="1247" height="262" key="GridCell.Tab.0.right" timestamp="1601030011945">
+    <state width="1247" height="225" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1601894688874" />
+    <state width="1247" height="225" key="GridCell.Tab.0.right" timestamp="1601894688874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1247" height="262" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1601030011945" />
-    <state width="1247" height="262" key="GridCell.Tab.1.bottom" timestamp="1601030011945">
+    <state width="1247" height="225" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1601894688874" />
+    <state width="1247" height="225" key="GridCell.Tab.1.bottom" timestamp="1601894688874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1247" height="262" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1601030011945" />
-    <state width="1247" height="262" key="GridCell.Tab.1.center" timestamp="1601030011945">
+    <state width="1247" height="225" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1601894688874" />
+    <state width="1247" height="225" key="GridCell.Tab.1.center" timestamp="1601894688874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1247" height="262" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1601030011945" />
-    <state width="1247" height="262" key="GridCell.Tab.1.left" timestamp="1601030011945">
+    <state width="1247" height="225" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1601894688874" />
+    <state width="1247" height="225" key="GridCell.Tab.1.left" timestamp="1601894688874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1247" height="262" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1601030011945" />
-    <state width="1247" height="262" key="GridCell.Tab.1.right" timestamp="1601030011945">
+    <state width="1247" height="225" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1601894688874" />
+    <state width="1247" height="225" key="GridCell.Tab.1.right" timestamp="1601894688874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1247" height="262" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1601030011945" />
-    <state width="1247" height="262" key="GridCell.Tab.2.bottom" timestamp="1601030011945">
+    <state width="1247" height="225" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1601894688874" />
+    <state width="1247" height="225" key="GridCell.Tab.2.bottom" timestamp="1601894688874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1247" height="262" key="GridCell.Tab.2.bottom/0.0.1536.864@0.0.1536.864" timestamp="1601030011945" />
-    <state width="1247" height="262" key="GridCell.Tab.2.center" timestamp="1601030011945">
+    <state width="1247" height="225" key="GridCell.Tab.2.bottom/0.0.1536.864@0.0.1536.864" timestamp="1601894688874" />
+    <state width="1247" height="225" key="GridCell.Tab.2.center" timestamp="1601894688874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1247" height="262" key="GridCell.Tab.2.center/0.0.1536.864@0.0.1536.864" timestamp="1601030011945" />
-    <state width="1247" height="262" key="GridCell.Tab.2.left" timestamp="1601030011945">
+    <state width="1247" height="225" key="GridCell.Tab.2.center/0.0.1536.864@0.0.1536.864" timestamp="1601894688874" />
+    <state width="1247" height="225" key="GridCell.Tab.2.left" timestamp="1601894688874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1247" height="262" key="GridCell.Tab.2.left/0.0.1536.864@0.0.1536.864" timestamp="1601030011945" />
-    <state width="1247" height="262" key="GridCell.Tab.2.right" timestamp="1601030011945">
+    <state width="1247" height="225" key="GridCell.Tab.2.left/0.0.1536.864@0.0.1536.864" timestamp="1601894688874" />
+    <state width="1247" height="225" key="GridCell.Tab.2.right" timestamp="1601894688874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1247" height="262" key="GridCell.Tab.2.right/0.0.1536.864@0.0.1536.864" timestamp="1601030011945" />
+    <state width="1247" height="225" key="GridCell.Tab.2.right/0.0.1536.864@0.0.1536.864" timestamp="1601894688874" />
     <state width="1247" height="262" key="GridCell.Tab.3.bottom" timestamp="1601022865226">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -381,10 +384,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1247" height="178" key="GridCell.Tab.4.right/0.0.1536.864@0.0.1536.864" timestamp="1601022210380" />
-    <state x="299" y="88" key="Maven.ArtifactSearchDialog" timestamp="1600947783643">
+    <state x="299" y="88" key="Maven.ArtifactSearchDialog" timestamp="1601886121112">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="299" y="88" key="Maven.ArtifactSearchDialog/0.0.1536.864@0.0.1536.864" timestamp="1600947783643" />
+    <state x="299" y="88" key="Maven.ArtifactSearchDialog/0.0.1536.864@0.0.1536.864" timestamp="1601886121112" />
     <state x="249" y="8" key="SettingsEditor" timestamp="1600937515880">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -397,18 +400,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="220" y="63" key="com.intellij.database.dbimport.ImportDialog/0.0.1536.864@0.0.1536.864" timestamp="1600964589876" />
-    <state x="737" y="96" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1601024637471">
+    <state x="737" y="96" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1601800542516">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="737" y="96" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.864@0.0.1536.864" timestamp="1601024637471" />
-    <state x="465" y="258" key="com.intellij.ide.util.TipDialog" timestamp="1601030053338">
+    <state x="737" y="96" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.864@0.0.1536.864" timestamp="1601800542516" />
+    <state x="465" y="258" key="com.intellij.ide.util.TipDialog" timestamp="1601892718521">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="465" y="258" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1601030053338" />
+    <state x="465" y="258" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1601892718521" />
     <state x="425" y="197" key="run.anything.popup" timestamp="1600274145669">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1600274145669" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1601801747801">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1601801747801" />
   </component>
   <component name="mavenExecuteGoalHistory">
     <option value="" />

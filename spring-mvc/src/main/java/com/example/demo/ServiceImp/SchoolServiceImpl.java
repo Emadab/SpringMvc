@@ -126,6 +126,8 @@ public class SchoolServiceImpl implements SchoolService {
 
 	@Override
 	public String deleteById(int id) {
+		userRepository.deleteById(userRepository.findByUserName(
+				schoolRepository.findById(id).get().getUserName()).getId());
 		schoolRepository.deleteById(id);
 		return Msg.successDelete;
 	}
@@ -267,11 +269,7 @@ public class SchoolServiceImpl implements SchoolService {
 				"students",
 				null);
 
-		Authentication authentication = SecurityContextHolder.getContext()
-				.getAuthentication();
-
-		UserDetails userDetail = (UserDetails) authentication.getPrincipal();
-		School school = schoolRepository.findByUserName(userDetail.getUsername());
+		School school = schoolRepository.findByUserName(GlobalFunction.getUserNameFromAuth());
 		Hibernate.initialize(school.getStudentList());
 		responseModel.setResult(school.getStudentList());
 		return responseModel;

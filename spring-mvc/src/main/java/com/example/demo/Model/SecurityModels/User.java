@@ -59,4 +59,12 @@ public class User {
 		this.enabled = enabled;
 		return this;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }

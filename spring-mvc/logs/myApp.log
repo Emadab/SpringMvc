@@ -1,0 +1,8 @@
+INFO    2020-10-05 14:10:35,443 [http-nio-8080-exec-2] com.example.demo.Controller.LogInController  - login/Student  : initiated
+INFO    2020-10-05 14:10:37,962 [http-nio-8080-exec-3] com.example.demo.Util.Oauth2UserDetailsService  - Get Data for User: Admin
+INFO    2020-10-05 14:10:38,268 [http-nio-8080-exec-3] com.example.demo.Util.Oauth2UserDetailsService  - userDetail: AppUser [username=Admin, password=81DC9BDB52D04DC20036DBD8313ED055, enabled=true, accountNonExpired=true, credentialsNonExpired=true, accountNonLocked=true, authorities=[ROLE_ADMIN]]
+INFO    2020-10-05 14:10:41,860 [http-nio-8080-exec-2] com.example.demo.Controller.LogInController  - login/Student  status:200
+INFO    2020-10-05 14:10:58,848 [http-nio-8080-exec-4] com.example.demo.Controller.AdminController  - admin/allStudents  : initiated
+INFO    2020-10-05 14:10:59,551 [http-nio-8080-exec-4] com.example.demo.Controller.AdminController  - admin/allStudents  status:200
+INFO    2020-10-05 14:11:24,221 [http-nio-8080-exec-8] com.example.demo.Controller.StudentController  - student/changePassword  : initiated
+INFO    2020-10-05 14:11:25,172 [http-nio-8080-exec-8] com.example.demo.Controller.StudentController  - student/changePassword  status:200

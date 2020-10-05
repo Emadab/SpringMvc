@@ -136,6 +136,7 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public String deleteById(int id) {
+		userRepository.deleteById(userRepository.findByUserName(studentRepository.findById(id).getUserName()).getId());
 		studentRepository.deleteById(id);
 		return Msg.successDelete;
 	}
@@ -261,11 +262,9 @@ public class StudentServiceImpl implements StudentService {
 				"change password",
 				null);
 
-		Authentication authentication = SecurityContextHolder.getContext()
-				.getAuthentication();
-		UserDetails userDetail = (UserDetails) authentication.getPrincipal();
 
-		Student student = studentRepository.findByUserName(userDetail.getUsername());
+
+		Student student = studentRepository.findByUserName(GlobalFunction.getUserNameFromAuth());
 		if(student.getPassword().equals(GlobalFunction.stringToMd5(oldPassword))){
 			student.setPassword(GlobalFunction.stringToMd5(newPassword));
 			studentRepository.save(student);
@@ -499,11 +498,7 @@ public class StudentServiceImpl implements StudentService {
 				"profile",
 				null);
 
-		Authentication authentication = SecurityContextHolder.getContext()
-				.getAuthentication();
-
-		UserDetails userDetail = (UserDetails) authentication.getPrincipal();
-		responseModel.setResult(studentRepository.findByUserName(userDetail.getUsername()));
+		responseModel.setResult(studentRepository.findByUserName(GlobalFunction.getUserNameFromAuth()));
 		return responseModel;
 	}
 

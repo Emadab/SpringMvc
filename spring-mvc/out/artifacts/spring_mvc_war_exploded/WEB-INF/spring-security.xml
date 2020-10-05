@@ -70,12 +70,11 @@
         <sec:csrf disabled="true"/>
         <sec:anonymous enabled="true"/>
         <sec:intercept-url pattern="/**"  method="OPTIONS" access="isAnonymous()"/>
-        <sec:intercept-url pattern="/student/admin/**" access="hasAnyRole('ROLE_APP','ROLE_ADMIN')"/>
-        <sec:intercept-url pattern="/student/user/**" access="hasAnyRole('ROLE_APP','ROLE_ADMIN','ROLE_STUDENT')"/>
-        <sec:intercept-url pattern="/school/admin/**" access="hasAnyRole('ROLE_APP','ROLE_ADMIN')"/>
-        <sec:intercept-url pattern="/school/user/**" access="hasAnyRole('ROLE_APP','ROLE_ADMIN','ROLE_SCHOOL')"/>
-        <sec:intercept-url pattern="/student/**" access="permitAll()"/>
-        <sec:intercept-url pattern="/school/**" access="permitAll()"/>
+        <sec:intercept-url pattern="/student/**" access="hasAnyRole('ROLE_APP','ROLE_ADMIN', 'ROLE_STUDENT')"/>
+        <sec:intercept-url pattern="/school/**" access="hasAnyRole('ROLE_APP','ROLE_ADMIN', 'ROLE_SCHOOL')"/>
+        <sec:intercept-url pattern="/admin/**" access="hasAnyRole('ROLE_APP','ROLE_ADMIN')"/>
+        <sec:intercept-url pattern="/login/**" access="permitAll()"/>
+        <sec:intercept-url pattern="/signup/**" access="permitAll()"/>
         <sec:custom-filter ref="resourceServerFilter" before="PRE_AUTH_FILTER"/>
         <sec:access-denied-handler ref="oAuth2AccessDeniedHandler"/>
     </sec:http>

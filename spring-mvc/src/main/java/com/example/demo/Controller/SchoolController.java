@@ -6,6 +6,7 @@ import com.example.demo.Util.Msg;
 import com.example.demo.Model.Course;
 import com.example.demo.Model.ResponseModel.ResponseModel;
 import com.example.demo.Model.School;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,31 +17,17 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/school")
 public class SchoolController {
+
+	Logger logger = Logger.getLogger(SchoolController.class);
+
 	@Autowired
 	private SchoolServiceImpl schoolService;
 
-	@RequestMapping("/admin/all")
-	public @ResponseBody ResponseEntity getAllSchools(@RequestParam(defaultValue = "0") int page,
-	                                                  @RequestParam(defaultValue = "5") int size){
-		ResponseModel responseModel = new ResponseModel(
-				200,
-				"School list showing page " + (page+1),
-				schoolService.findAll(page, size));
-		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
-	}
-
-	@RequestMapping(value="/admin/delete/{id}", method=RequestMethod.GET)
-	public @ResponseBody ResponseEntity deleteById(@PathVariable("id") int id) {
-		ResponseModel responseModel = new ResponseModel(
-				200,
-				"Delete by id",
-				schoolService.deleteById(id));
-		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
-	}
-
-	@RequestMapping(value="/user/addStudent", method=RequestMethod.POST)
+	@RequestMapping(value="/addStudent", method=RequestMethod.POST)
 	public @ResponseBody ResponseEntity addStudent(@RequestParam int school_id, @RequestParam int student_id){
+		logger.info("school/addStudent  : initiated");
 		ResponseModel responseModel = schoolService.addStudentById(school_id, student_id);
+		logger.info("school/addStudent  status:" + responseModel.getStatus());
 		if (responseModel.getStatus() == 404){
 			return ResponseEntity.status(404).body(responseModel);
 		}
@@ -48,60 +35,44 @@ public class SchoolController {
 	}
 
 	//getStudentsOfSchool
-	@RequestMapping(value="/user/studentList/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/studentList/{id}", method=RequestMethod.GET)
 	public @ResponseBody ResponseEntity getStudentList(@PathVariable("id") int id) {
+		logger.info("school/studentList/{" + id + "}  : initiated");
 		ResponseModel responseModel = new ResponseModel(
 				200,
 				"get student List of school",
 				schoolService.getStudentsOfSchool(id));
+		logger.info("school/studentList/{" + id + "}  status:" + responseModel.getStatus());
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value="/user/findAllSortedBy", method = RequestMethod.GET)
+	@RequestMapping(value="/findAllSortedBy", method = RequestMethod.GET)
 	public @ResponseBody ResponseEntity findAllSortedBy(@RequestParam String sortBy, @RequestParam String direction,
 	                                                    @RequestParam(defaultValue = "0") int page,
 	                                                    @RequestParam(defaultValue = "5") int size){
+		logger.info("school/findAllSortedBy  : initiated");
 		ResponseModel responseModel = new ResponseModel(
 				200,
 				"find All Students Sorted By " + sortBy + " " + direction + "showing page " + (page+1),
 				schoolService.getAllSchoolsSorted(sortBy, direction, page, size));
+		logger.info("school/findAllSortedBy  status:" + responseModel.getStatus());
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value="/user/searchBy", method = RequestMethod.GET)
-	public @ResponseBody ResponseEntity searchBy(@RequestParam Optional<Long> ranking,
-	                                             @RequestParam Optional<Integer> numberOfFacultyMembers,
-	                                             @RequestParam(defaultValue = "0") int page,
-	                                             @RequestParam(defaultValue = "5") int size){
-		ResponseModel responseModel = schoolService.searchBy(ranking, numberOfFacultyMembers, page, size);
-		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
-	}
-
-	@RequestMapping(value = "/user/newCourse", method = RequestMethod.POST)
+	@RequestMapping(value = "/newCourse", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity newCourse(@RequestBody Course course){
+		logger.info("school/newCourse  : initiated");
 		ResponseModel responseModel = schoolService.newCourse(course);
+		logger.info("school/newCourse  status:" + responseModel.getStatus());
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 
-	@RequestMapping(value="/logIn", method=RequestMethod.GET)
-	@ResponseBody
-	ResponseEntity singIn(@RequestParam String userName,
-	                      @RequestParam String password){
-		ResponseModel responseModel = schoolService.signIn(userName, password);
-		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
-	}
-
-	@RequestMapping(value="/signUp", method= RequestMethod.POST)
-	@ResponseBody
-	ResponseEntity addNewStudent (@RequestBody School school){
-		ResponseModel responseModel = schoolService.addNewSchool(school);
-		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
-	}
-
-	@RequestMapping(value="/user/students")
+	@RequestMapping(value="/students")
 	@ResponseBody
 	ResponseEntity getStudents(){
+		logger.info("school/students  : initiated");
 		ResponseModel responseModel = schoolService.getStudents();
+		logger.info("school/students  status:" + responseModel.getStatus());
 		return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 	}
 }

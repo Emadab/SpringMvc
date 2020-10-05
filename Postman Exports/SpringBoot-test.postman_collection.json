@@ -186,14 +186,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/student/add?smsCode=123456",
+							"raw": "localhost:8080/signup/Student?smsCode=123456",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"student",
-								"add"
+								"signup",
+								"Student"
 							],
 							"query": [
 								{
@@ -411,37 +411,24 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\" : \"tehran\",\r\n    \"numberOfFacultyMembers\" : \"178\",\r\n    \"numberOfStudents\" : \"1000\",\r\n    \"phoneNumber\" : \"123456789\",\r\n    \"ranking\" : \"790\",\r\n    \"userName\" : \"sc1\",\r\n    \"password\" : \"4321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:8080/school/add?numberOfStudents=372&numberOfFacultyMembers=102&ranking=243&address=tehran,enghelab.st,no,43&phoneNumber=02122689745",
+							"raw": "localhost:8080/signup/school",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"school",
-								"add"
-							],
-							"query": [
-								{
-									"key": "numberOfStudents",
-									"value": "372"
-								},
-								{
-									"key": "numberOfFacultyMembers",
-									"value": "102"
-								},
-								{
-									"key": "ranking",
-									"value": "243"
-								},
-								{
-									"key": "address",
-									"value": "tehran,enghelab.st,no,43"
-								},
-								{
-									"key": "phoneNumber",
-									"value": "02122689745"
-								}
+								"signup",
+								"school"
 							]
 						}
 					},
@@ -651,14 +638,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/school/all",
+							"raw": "localhost:8080/admin/allSchools",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"school",
-								"all"
+								"admin",
+								"allSchools"
 							]
 						}
 					},
@@ -761,14 +748,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/school/delete/2",
+							"raw": "localhost:8080/admin/deleteSchool/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"school",
-								"delete",
+								"admin",
+								"deleteSchool",
 								"2"
 							]
 						}
@@ -891,14 +878,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/school/findAllSortedBy?sortBy=ranking&direction=desc",
+							"raw": "localhost:8080/admin/findAllSchoolsSortedBy?sortBy=ranking&direction=desc",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"school",
-								"findAllSortedBy"
+								"admin",
+								"findAllSchoolsSortedBy"
 							],
 							"query": [
 								{
@@ -976,14 +963,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/school/searchBy?numberOfFacultyMembers=21",
+							"raw": "localhost:8080/admin/SchoolSearchBy?numberOfFacultyMembers=21",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"school",
-								"searchBy"
+								"admin",
+								"SchoolSearchBy"
 							],
 							"query": [
 								{
@@ -1264,6 +1251,64 @@
 							"body": "{\n    \"status\": 200,\n    \"message\": \"درس با موفقیت اضافه شد\",\n    \"timestamp\": \"2020-08-20T07:19:07.956+00:00\",\n    \"result\": null\n}"
 						}
 					]
+				},
+				{
+					"name": "log in",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/login/School?userName=sc1&password=4321",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login",
+								"School"
+							],
+							"query": [
+								{
+									"key": "userName",
+									"value": "sc1"
+								},
+								{
+									"key": "password",
+									"value": "4321"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "student list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/school/students?access_token=a371710a-31d0-41bc-bf22-bacafdb469e7&",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"school",
+								"students"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "a371710a-31d0-41bc-bf22-bacafdb469e7"
+								},
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -1277,19 +1322,23 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/student/all?size=100",
+							"raw": "localhost:8080/admin/allStudents?size=100&access_token=fc3ad198-8681-46d4-a330-8a466953ab16",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"student",
-								"all"
+								"admin",
+								"allStudents"
 							],
 							"query": [
 								{
 									"key": "size",
 									"value": "100"
+								},
+								{
+									"key": "access_token",
+									"value": "fc3ad198-8681-46d4-a330-8a466953ab16"
 								}
 							]
 						}
@@ -1348,14 +1397,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/student/delete/14",
+							"raw": "localhost:8080/admin/deleteStudent/14",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"student",
-								"delete",
+								"admin",
+								"deleteStudent",
 								"14"
 							]
 						}
@@ -1411,14 +1460,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/student/get/38",
+							"raw": "localhost:8080/admin/getStudent/38",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"student",
-								"get",
+								"admin",
+								"getStudent",
 								"38"
 							]
 						}
@@ -1629,13 +1678,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/student/parentList/15",
+							"raw": "localhost:8080/admin/parentList/15",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"student",
+								"admin",
 								"parentList",
 								"15"
 							]
@@ -1696,14 +1745,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/student/findAllSortedBy?sortBy=gpa&direction=desc&page=3&size=2",
+							"raw": "localhost:8080/admin/findAllStudentsSortedBy?sortBy=gpa&direction=desc&page=3&size=2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"student",
-								"findAllSortedBy"
+								"admin",
+								"findAllStudentsSortedBy"
 							],
 							"query": [
 								{
@@ -1969,14 +2018,14 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:8080/student/searchBy?firstName=alia&page=0&size=100&parentFirstName=hossein&address=tehran",
+							"raw": "localhost:8080/admin/StudentSearchBy?firstName=alia&page=0&size=100&parentFirstName=hossein&address=tehran",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"student",
-								"searchBy"
+								"admin",
+								"StudentSearchBy"
 							],
 							"query": [
 								{
@@ -2468,23 +2517,23 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/student/logIn?userName=Admin&password=pass",
+							"raw": "localhost:8080/login/Student?userName=khs&password=1234",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"student",
-								"logIn"
+								"login",
+								"Student"
 							],
 							"query": [
 								{
 									"key": "userName",
-									"value": "Admin"
+									"value": "khs"
 								},
 								{
 									"key": "password",
-									"value": "pass"
+									"value": "1234"
 								}
 							]
 						}
@@ -2497,7 +2546,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/student/changePassword?id=38&oldPassword=1234&newPassword=pass",
+							"raw": "localhost:8080/student/changePassword?oldPassword=drums&newPassword=1234&access_token=df1945fa-c4e8-4b0b-855d-4dda70eb92d6",
 							"host": [
 								"localhost"
 							],
@@ -2508,16 +2557,16 @@
 							],
 							"query": [
 								{
-									"key": "id",
-									"value": "38"
-								},
-								{
 									"key": "oldPassword",
-									"value": "1234"
+									"value": "drums"
 								},
 								{
 									"key": "newPassword",
-									"value": "pass"
+									"value": "1234"
+								},
+								{
+									"key": "access_token",
+									"value": "df1945fa-c4e8-4b0b-855d-4dda70eb92d6"
 								}
 							]
 						}
@@ -2648,13 +2697,13 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/student/addCourse?student_id=387&course_id=3",
+							"raw": "localhost:8080/admin/addCourse?student_id=387&course_id=3",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"student",
+								"admin",
 								"addCourse"
 							],
 							"query": [
