@@ -8,41 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="736ea592-bd22-4063-a10b-973f175c1283" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/myApp.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/LogInController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/SignUpController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Util/LogMsg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Postman Exports/SpringBoot-test.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Postman Exports/SpringBoot-test.postman_collection.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Controller/SchoolController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Controller/SchoolController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Controller/StudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Model/SecurityModels/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Model/SecurityModels/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Service/SchoolService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Service/SchoolService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/ServiceImp/SchoolServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/ServiceImp/SchoolServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/ServiceImp/StudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/ServiceImp/StudentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Util/GlobalFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/com/example/demo/Util/GlobalFunction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/classes/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/spring-security.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/spring_mvc_war_exploded/WEB-INF/spring-security.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/SchoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/SchoolController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/SecurityModels/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/SecurityModels/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/ServiceImp/SchoolServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/ServiceImp/SchoolServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/ServiceImp/StudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/ServiceImp/StudentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Util/GlobalFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Util/GlobalFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/SchoolController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/SchoolController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/StudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Model/SecurityModels/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Model/SecurityModels/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Service/SchoolService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Service/SchoolService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/ServiceImp/SchoolServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/ServiceImp/SchoolServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/ServiceImp/StudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/ServiceImp/StudentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Util/GlobalFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Util/GlobalFunction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/spring-security.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/spring-security.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Util/LogMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Util/LogMsg.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,15 +200,6 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:test1 database" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
             </expand>
             <select />
           </treeState>
@@ -274,6 +234,7 @@
       <workItem from="1601796009305" duration="5992000" />
       <workItem from="1601884286270" duration="2394000" />
       <workItem from="1601892715603" duration="1972000" />
+      <workItem from="1601895538548" duration="4288000" />
     </task>
     <servers />
   </component>
@@ -404,10 +365,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="737" y="96" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.864@0.0.1536.864" timestamp="1601800542516" />
-    <state x="465" y="258" key="com.intellij.ide.util.TipDialog" timestamp="1601892718521">
+    <state x="465" y="258" key="com.intellij.ide.util.TipDialog" timestamp="1601895539124">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="465" y="258" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1601892718521" />
+    <state x="465" y="258" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1601895539124" />
     <state x="425" y="197" key="run.anything.popup" timestamp="1600274145669">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

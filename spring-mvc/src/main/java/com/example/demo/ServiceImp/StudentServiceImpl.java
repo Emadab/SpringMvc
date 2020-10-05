@@ -4,6 +4,7 @@ import com.example.demo.Model.SecurityModels.User;
 import com.example.demo.Repository.*;
 import com.example.demo.Service.StudentService;
 import com.example.demo.Util.GlobalFunction;
+import com.example.demo.Util.LogMsg;
 import com.example.demo.Util.Msg;
 import com.example.demo.Model.*;
 import com.example.demo.Model.PhoneValidationCode.PhoneValidationCode;
@@ -13,6 +14,7 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
+import org.apache.log4j.Logger;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
@@ -34,6 +36,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.demo.Model.Student;
 import com.example.demo.Model.Parent;
+import sun.rmi.runtime.Log;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.sql.Timestamp;
@@ -44,6 +48,9 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 public class StudentServiceImpl implements StudentService {
+
+	Logger logger = Logger.getLogger(StudentServiceImpl.class);
+
 	@PersistenceContext
 	EntityManager entityManager;
 
@@ -81,36 +88,42 @@ public class StudentServiceImpl implements StudentService {
 		if(student.getFirstName().isEmpty() || student.getLastName().isEmpty()){
 			responseModel.setResult(Msg.noName);
 			responseModel.setStatus(-101);
+			logger.info(LogMsg.fieldEmpty("name"));
 			return responseModel;
 		}
 		//check if phone is entered
 		if(student.getPhoneNumber().isEmpty()){
 			responseModel.setResult(Msg.noPhone);
 			responseModel.setStatus(-102);
+			logger.info(LogMsg.fieldEmpty("phone number"));
 			return responseModel;
 		}
 
 		if(student.getUserName().isEmpty()){
 			responseModel.setResult(Msg.noUsername);
 			responseModel.setStatus(-103);
+			logger.info(LogMsg.fieldEmpty("username"));
 			return responseModel;
 		}
 
 		if(student.getAddress().isEmpty()){
 			responseModel.setResult(Msg.noAddress);
 			responseModel.setStatus(-104);
+			logger.info(LogMsg.fieldEmpty("address"));
 			return responseModel;
 		}
 
 		if(student.getGpa() == -1){
 			responseModel.setResult(Msg.noGpa);
 			responseModel.setStatus(-105);
+			logger.info(LogMsg.fieldEmpty("gpa"));
 			return responseModel;
 		}
 
 		if(student.getPassword().isEmpty()){
 			responseModel.setResult(Msg.noPass);
 			responseModel.setStatus(-106);
+			logger.info(LogMsg.fieldEmpty("password"));
 			return responseModel;
 		}
 		
@@ -123,8 +136,11 @@ public class StudentServiceImpl implements StudentService {
 		String encryptedPass = GlobalFunction.stringToMd5(student.getPassword());
 		student.setPassword(encryptedPass);
 		userRepository.save(new User(student.getUserName(), encryptedPass, "ROLE_STUDENT", false));
+		logger.info(LogMsg.addToDb("user"));
 		studentRepository.save(student);
+		logger.info(LogMsg.addToDb("student"));
 		phoneValidationCodeRepository.deleteByPhoneNumber(student.getPhoneNumber());
+		logger.info(LogMsg.deleteFromDb("phone validation code"));
 		responseModel.setResult(Msg.successSignUp);
 		return responseModel;
 	}
@@ -137,13 +153,16 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public String deleteById(int id) {
 		userRepository.deleteById(userRepository.findByUserName(studentRepository.findById(id).getUserName()).getId());
+		logger.info(LogMsg.deleteFromDb("user"));
 		studentRepository.deleteById(id);
+		logger.info(LogMsg.deleteFromDb("student"));
 		return Msg.successDelete;
 	}
 
 	@Override
 	public Student getStudent(int id) {
 		Student student = studentRepository.findById(id);
+		logger.info(LogMsg.retrieveFromDb("student"));
 		return student;
 	}
 
@@ -155,7 +174,9 @@ public class StudentServiceImpl implements StudentService {
 				null);
 		try{
 			School school = entityManager.find(School.class, school_id);
+			logger.info(LogMsg.retrieveFromDb("school"));
 			Student student = entityManager.find(Student.class, student_id);
+			logger.info(LogMsg.retrieveFromDb("student"));
 			student.setSchool(school);
 			entityManager.persist(student);
 			responseModel.setMessage(Msg.successAddStudentToSchool);
@@ -163,6 +184,7 @@ public class StudentServiceImpl implements StudentService {
 		}catch (Exception e) {
 			responseModel.setStatus(404);
 			responseModel.setMessage(Msg.studentNotFound);
+			logger.info(LogMsg.notFoundInDb("student"));
 			return responseModel;
 		}
 	}
@@ -178,11 +200,13 @@ public class StudentServiceImpl implements StudentService {
 			Student student = entityManager.find(Student.class, student_id);
 			parent.setStudent(student);
 			entityManager.persist(parent);
+			logger.info(LogMsg.addToDb("parent"));
 			responseModel.setMessage(Msg.successAddParentToStudent);
 			return responseModel;
 		}catch (Exception e) {
 			responseModel.setMessage(Msg.studentNotFound);
 			responseModel.setStatus(404);
+			logger.info(LogMsg.notFoundInDb("student"));
 			return responseModel;
 		}
 	}
@@ -191,6 +215,7 @@ public class StudentServiceImpl implements StudentService {
 	public List<Parent> getParentList(int student_id) {
 		Student student = entityManager.find(Student.class, student_id);
 		Hibernate.initialize(student.getParentList());
+		logger.info(LogMsg.retrieveFromDb("parent list"));
 		return student.getParentList();
 	}
 
@@ -199,6 +224,7 @@ public class StudentServiceImpl implements StudentService {
 	                                          int page, int size) {
 
 		direction.toLowerCase();
+		logger.info(LogMsg.notFoundInDb("student list"));
 		if(direction.equals("asc")){
 			return studentRepository.findAllSorted(PageRequest.of(page, size, Sort.by(sortBy).ascending()));
 		}
@@ -228,11 +254,14 @@ public class StudentServiceImpl implements StudentService {
 			List<Parent> parentList = parentRepository.searchBy(
 					parentFirstName.orElse(""),
 					parentLastName.orElse(""));
+			logger.info(LogMsg.retrieveFromDb("parent list"));
 			studentList1 = (getStudentListByParent(parentList));
+			logger.info(LogMsg.retrieveFromDb("student list"));
 		}
 		List<Student> studentList2 = (studentRepository.searchBy(firstName.orElse(""), lastName.orElse(""),
 				address.orElse(""), phoneNumber.orElse(""),userName.orElse(""),
 				gpa.orElse(-1.0f), pageable));
+		logger.info(LogMsg.retrieveFromDb("student list"));
 		if(studentList1 == null){
 			responseModel.setResult(studentList2);
 			return responseModel;
@@ -251,6 +280,7 @@ public class StudentServiceImpl implements StudentService {
 		for(int i=0; i<length; i++){
 			studentList.add(entityManager.find(Student.class, parentList.get(i).getStudent().getId()));
 		}
+		logger.info(LogMsg.retrieveFromDb("student list"));
 		return studentList;
 	}
 
@@ -265,6 +295,7 @@ public class StudentServiceImpl implements StudentService {
 
 
 		Student student = studentRepository.findByUserName(GlobalFunction.getUserNameFromAuth());
+		logger.info(LogMsg.retrieveFromDb("student"));
 		if(student.getPassword().equals(GlobalFunction.stringToMd5(oldPassword))){
 			student.setPassword(GlobalFunction.stringToMd5(newPassword));
 			studentRepository.save(student);
@@ -304,6 +335,7 @@ public class StudentServiceImpl implements StudentService {
 							.post(RequestBody.create(null, new byte[0]))
 							.build();
 					ObjectMapper mapper = new ObjectMapper();
+					logger.info(LogMsg.authReqSent);
 					responseModel.setResult(mapper.readTree(client.newCall(request).execute().body().string()));
 					studentRepository.save(student);
 					return responseModel;
@@ -311,12 +343,14 @@ public class StudentServiceImpl implements StudentService {
 					e.printStackTrace();
 					responseModel.setStatus(-1);
 					responseModel.setMessage("exception");
+					logger.error(e.getStackTrace());
 					return responseModel;
 				}
 			}
 		}
 		responseModel.setStatus(-109);
 		responseModel.setMessage(Msg.failedLogin);
+		logger.info(LogMsg.failedLogin);
 		return responseModel;
 	}
 
@@ -335,15 +369,18 @@ public class StudentServiceImpl implements StudentService {
 
 		try{
 			Response response = okHttpClient.newCall(request).execute();
+			logger.info(LogMsg.smsCodeReqSent);
 			if(response.isSuccessful()){
 				PhoneValidationCode phoneValidationCode = new PhoneValidationCode(phoneNumber, otp);
 				phoneValidationCodeRepository.save(phoneValidationCode);
+				logger.info(LogMsg.addToDb("phone validation code"));
 				responseModel.setMessage(Msg.successSmsCodeSent);
 				return responseModel;
 			}
 
 		}catch (Exception e){
 			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 		responseModel.setStatus(-110);
 		responseModel.setMessage(Msg.failedSmsCodeSent);
@@ -360,6 +397,7 @@ public class StudentServiceImpl implements StudentService {
 				findByPhoneNumber(phoneValidationCode.getPhoneNumber());
 		if(phoneValidationCode.getCode() == pvcode.getCode()){
 			Student s = studentRepository.findByPhoneNumber(pvcode.getPhoneNumber());
+			logger.info(LogMsg.retrieveFromDb("student"));
 			userRepository.save(userRepository.findByUserName(s.getUserName()).setEnabled(true));
 			responseModel.setMessage(Msg.smsCodeMatch);
 			return responseModel;
@@ -385,6 +423,7 @@ public class StudentServiceImpl implements StudentService {
 		if(file.isEmpty()){
 			responseModel.setStatus(-115);
 			responseModel.setMessage(Msg.noPhoto);
+			logger.info(LogMsg.fieldEmpty("photo"));
 			return responseModel;
 		}
 
@@ -408,16 +447,19 @@ public class StudentServiceImpl implements StudentService {
 				int oldId = student.getStudentImage().getId();
 				student.setStudentImage(null);
 				studnetImageRepository.deleteById(oldId);
+				logger.info(LogMsg.deleteFromDb("image"));
 			}
 
 			student.setStudentImage(studentImage);
 			studentImage.setStudent(student);
 			entityManager.persist(studentImage);
+			logger.info(LogMsg.addToDb("image"));
 			responseModel.setMessage(Msg.successImageAdd);
 			return responseModel;
 		}catch (Exception e){
 			e.printStackTrace();
 			responseModel.setMessage(Msg.imageIoException);
+			logger.error(e.getStackTrace(),e);
 			return responseModel;
 		}
 	}
@@ -430,8 +472,8 @@ public class StudentServiceImpl implements StudentService {
 				null);
 
 		try{
-			entityManager.find(Student.class, id);
 			Student student = entityManager.find(Student.class, id);
+			logger.info(LogMsg.retrieveFromDb("student"));
 			StudentImage studentImage = student.getStudentImage();
 			return ResponseEntity.ok()
 					.contentType(MediaType.parseMediaType(studentImage.getFileType()))
@@ -441,6 +483,7 @@ public class StudentServiceImpl implements StudentService {
 		}catch (Exception e){
 			responseModel.setStatus(404);
 			responseModel.setMessage(Msg.studentNotFound);
+			logger.info(e.getStackTrace(), e);
 			return ResponseEntity.status(404).body(responseModel);
 		}
 	}
@@ -453,7 +496,9 @@ public class StudentServiceImpl implements StudentService {
 				null);
 
 		Course course = entityManager.find(Course.class, course_id);
+		logger.info(LogMsg.retrieveFromDb("course"));
 		Student student = entityManager.find(Student.class, student_id);
+		logger.info(LogMsg.retrieveFromDb("student"));
 
 		if(course == null){
 			responseModel.setStatus(404);
@@ -499,6 +544,7 @@ public class StudentServiceImpl implements StudentService {
 				null);
 
 		responseModel.setResult(studentRepository.findByUserName(GlobalFunction.getUserNameFromAuth()));
+		logger.info(LogMsg.retrieveFromDb("student"));
 		return responseModel;
 	}
 
